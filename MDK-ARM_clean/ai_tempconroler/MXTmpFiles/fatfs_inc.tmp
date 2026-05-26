@@ -1,4 +1,0 @@
-#include "ff.h"
-#include "ff_gen_drv.h"
-
-       #include "sram_diskio.h"      /* defines SRAMDISK_Driver as external */

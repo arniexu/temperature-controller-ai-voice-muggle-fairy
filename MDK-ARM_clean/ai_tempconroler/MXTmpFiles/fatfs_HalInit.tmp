@@ -1,2 +1,0 @@
-#t/*## FatFS: Link the SRAMDISK driver ###########################*/
-#tretSRAMDISK = FATFS_LinkDriver(&SRAMDISK_Driver, SRAMDISKPath);

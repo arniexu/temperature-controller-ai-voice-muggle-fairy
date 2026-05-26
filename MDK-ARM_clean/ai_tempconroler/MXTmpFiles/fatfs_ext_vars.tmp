@@ -1,4 +1,0 @@
-extern uint8_t retSRAMDISK;    /* Return value for SRAMDISK */
-extern char SRAMDISKPath[4];   /* SRAMDISK logical drive path */
-extern FATFS SRAMDISKFatFS;    /* File system object for SRAMDISK logical drive */
-extern FIL SRAMDISKFile;       /* File  object for SRAMDISK */
