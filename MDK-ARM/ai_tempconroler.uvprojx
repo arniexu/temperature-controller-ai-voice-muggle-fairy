@@ -1535,9 +1535,9 @@ XRAM>0</hadXRAM>
               <FilePath>../Drivers/BSP/Adafruit_Shield/stm32_adafruit_lcd.c</FilePath>
             </File>
             <File>
-              <FileName>lcd_io_fsmc.c</FileName>
+              <FileName>fsmc_8080.c</FileName>
               <FileType>1</FileType>
-              <FilePath>../Drivers/BSP/Adafruit_Shield/lcd_io_fsmc.c</FilePath>
+              <FilePath>../Drivers/BSP/Components/ili9341/fsmc_8080.c</FilePath>
             </File>
             <File>
               <FileName>ili9341.c</FileName>
