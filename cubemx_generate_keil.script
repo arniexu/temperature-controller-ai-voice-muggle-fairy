@@ -1,0 +1,5 @@
+config load ai_tempconroler.ioc
+project toolchain MDK-ARM
+project path MDK-ARM_clean
+project generate
+exit
