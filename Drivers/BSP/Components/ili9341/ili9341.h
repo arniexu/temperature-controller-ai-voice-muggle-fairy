@@ -23,13 +23,13 @@
 #ifndef __ILI9341_H
 #define __ILI9341_H
 
-#include <stdint.h>
 #ifdef __cplusplus
  extern "C" {
 #endif 
 
 /* Includes ------------------------------------------------------------------*/
 #include "../Common/lcd.h"
+#include "fsmc_8080.h"
 
 /** @addtogroup BSP
   * @{
@@ -180,11 +180,6 @@
 
 /* Size of read registers */
 #define LCD_READ_ID4_SIZE        3      /* Size of Read ID4 */
-#define  CMD_BASE     ((u32)(0x6C000000 | 0x00001FFE))
-#define  DATA_BASE    ((u32)(0x6C000000 | 0x00002000))
-
-#define LCD_CMD       ( * (u16 *) CMD_BASE )
-#define LCD_DATA      ( * (u16 *) DATA_BASE)
 
 /**
   * @}
@@ -195,9 +190,9 @@
   */ 
 void     ili9341_Init(void);
 uint16_t ili9341_ReadID(void);
-void     ili9341_WriteReg(uint16_t LCD_Reg);
-void     ili9341_WriteRegData(uint16_t LCD_Reg, uint16_t RegValue);
+void     ili9341_WriteReg(uint8_t LCD_Reg);
 void     ili9341_WriteData(uint16_t RegValue);
+uint32_t ili9341_ReadData(uint16_t RegValue, uint8_t ReadSize);
 void     ili9341_DisplayOn(void);
 void     ili9341_DisplayOff(void);
 uint16_t ili9341_GetLcdPixelWidth(void);
