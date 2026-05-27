@@ -2,3 +2,5 @@
 # Continuity
 SESSION_HANDOFF.md
 .continuity/
+*.o
+*.d
