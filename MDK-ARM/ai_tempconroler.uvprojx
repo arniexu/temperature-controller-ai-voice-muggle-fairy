@@ -915,7 +915,7 @@ XRAM>0</hadXRAM>
               <MiscControls>--target=arm-arm-none-eabi -mcpu=cortex-m4 -mthumb</MiscControls>
               <Define>USE_HAL_DRIVER,STM32F407xx,BSP_TEST_TARGET</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../FATFS/Target;../FATFS/App;../LIBJPEG/App;../LIBJPEG/Target;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F;../Middlewares/Third_Party/FatFs/src;../Middlewares/Third_Party/LibJPEG/include;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../UI/Core/Inc;../Drivers/BSP/Adafruit_Shield;../Drivers/BSP/Components/Common;../Drivers/BSP/Components/ili9341;../Drivers/BSP/Components/xpt2046;../Middlewares/Third_Party/lvgl;../Middlewares/Third_Party/lvgl/src;../UI/LVGL</IncludePath>
+              <IncludePath>../Core/Inc;../FATFS/Target;../FATFS/App;../LIBJPEG/App;../LIBJPEG/Target;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F;../Middlewares/Third_Party/FatFs/src;../Middlewares/Third_Party/LibJPEG/include;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../UI/Core/Inc;../Drivers/BSP/Components/Common;../Drivers/BSP/Components/ili9341;../Drivers/BSP/Components/xpt2046;../Middlewares/Third_Party/lvgl;../Middlewares/Third_Party/lvgl/src;../UI/LVGL</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -933,7 +933,7 @@ XRAM>0</hadXRAM>
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../FATFS/Target;../FATFS/App;../LIBJPEG/App;../LIBJPEG/Target;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F;../Middlewares/Third_Party/FatFs/src;../Middlewares/Third_Party/LibJPEG/include;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../UI/Core/Inc;../Drivers/BSP/Adafruit_Shield;../Drivers/BSP/Components/Common;../Drivers/BSP/Components/ili9341;../Drivers/BSP/Components/xpt2046;../Middlewares/Third_Party/lvgl;../Middlewares/Third_Party/lvgl/src;../UI/LVGL</IncludePath>
+              <IncludePath>../Core/Inc;../FATFS/Target;../FATFS/App;../LIBJPEG/App;../LIBJPEG/Target;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F;../Middlewares/Third_Party/FatFs/src;../Middlewares/Third_Party/LibJPEG/include;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../UI/Core/Inc;../Drivers/BSP/Components/Common;../Drivers/BSP/Components/ili9341;../Drivers/BSP/Components/xpt2046;../Middlewares/Third_Party/lvgl;../Middlewares/Third_Party/lvgl/src;../UI/LVGL</IncludePath>
             </VariousControls>
           </Aads>
           <LDads>
@@ -1529,11 +1529,6 @@ XRAM>0</hadXRAM>
         <Group>
           <GroupName>Drivers/BSP/DisplayTouch</GroupName>
           <Files>
-            <File>
-              <FileName>stm32_adafruit_lcd.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../Drivers/BSP/Adafruit_Shield/stm32_adafruit_lcd.c</FilePath>
-            </File>
             <File>
               <FileName>fsmc_8080.c</FileName>
               <FileType>1</FileType>
@@ -2546,4 +2541,3 @@ XRAM>0</hadXRAM>
   </LayerInfo>
 
 </Project>
-

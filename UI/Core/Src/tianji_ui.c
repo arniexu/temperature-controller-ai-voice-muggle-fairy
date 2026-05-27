@@ -124,7 +124,7 @@ static void update_realm_bar(tianji_ui_t *ui)
 {
     const tianji_cultivation_t *cult = tianji_get_cultivation(ui->current_temp);
     for (int i = 0; i < 7; i++) {
-        uint16_t color = (ui->current_temp >= tianji_cultivation_levels[i].minTemp &&
+        uint32_t color = (ui->current_temp >= tianji_cultivation_levels[i].minTemp &&
                          ui->current_temp < tianji_cultivation_levels[i].maxTemp)
                          ? cult->color : 0x2A2A4A;
         lv_obj_set_style_bg_color(realm_dots[i], lv_color_hex(color), 0);
