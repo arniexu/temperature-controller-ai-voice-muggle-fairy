@@ -8,6 +8,9 @@
 #define TIANJI_UI_H
 
 #include "lvgl.h"
+#include "tianji_dial.h"
+#include "tianji_particles.h"
+#include "tianji_voice.h"
 #include <stdint.h>
 
 #ifdef __cplusplus
@@ -26,13 +29,13 @@ typedef struct {
     lv_obj_t       *aqi_badge;
 
     /* Main dial */
-    struct tj_dial_s    *dial;
+    tj_dial_t      *dial;
 
     /* Particle effect */
-    struct tj_particle_helix_s *particles;
+    tj_particle_helix_t *particles;
 
     /* Voice core */
-    struct tj_voice_s   *voice;
+    tj_voice_t     *voice;
 
     /* Bottom control buttons */
     lv_obj_t       *btn_mode;
