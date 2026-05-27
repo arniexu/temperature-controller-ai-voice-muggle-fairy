@@ -10,7 +10,6 @@
       <TargetName>ai_tempconroler</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pArmCC>6240000::V6.24::ARMCLANG</pArmCC>
       <pCCUsed>6240000::V6.24::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
@@ -339,9 +338,9 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>USE_HAL_DRIVER,STM32F407xx</Define>
+              <Define>USE_HAL_DRIVER,STM32F407xx,__GCC_POSIX</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../FATFS/Target;../FATFS/App;../LIBJPEG/App;../LIBJPEG/Target;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Middlewares/Third_Party/FatFs/src;../Middlewares/Third_Party/LibJPEG/include;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include</IncludePath>
+              <IncludePath>../Core/Inc;../FATFS/Target;../FATFS/App;../LIBJPEG/App;../LIBJPEG/Target;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/BSP/Components/ili9341;../Drivers/BSP/Components/xpt2046;../Drivers/BSP/Components/Common;../UI/Core/Inc;../UI/LVGL;../Utilities/Fonts;../Utilities/Log;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Middlewares/Third_Party/FatFs/src;../Middlewares/Third_Party/LibJPEG/include;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -359,7 +358,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../FATFS/Target;../FATFS/App;../LIBJPEG/App;../LIBJPEG/Target;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Middlewares/Third_Party/FatFs/src;../Middlewares/Third_Party/LibJPEG/include;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include</IncludePath>
+              <IncludePath>../Core/Inc;../FATFS/Target;../FATFS/App;../LIBJPEG/App;../LIBJPEG/Target;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/BSP/Components/ili9341;../Drivers/BSP/Components/xpt2046;../Drivers/BSP/Components/Common;../UI/Core/Inc;../UI/LVGL;../Utilities/Fonts;../Utilities/Log;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Middlewares/Third_Party/FatFs/src;../Middlewares/Third_Party/LibJPEG/include;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include</IncludePath>
             </VariousControls>
           </Aads>
           <LDads>
@@ -904,6 +903,121 @@
               <FileName>jmemnobs.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Middlewares/Third_Party/LibJPEG/source/jmemnobs.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Drivers/BSP/ILI9341</GroupName>
+          <Files>
+            <File>
+              <FileName>ili9341.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Drivers/BSP/Components/ili9341/ili9341.c</FilePath>
+            </File>
+            <File>
+              <FileName>fsmc_8080.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Drivers/BSP/Components/ili9341/fsmc_8080.c</FilePath>
+            </File>
+            <File>
+              <FileName>ili9341_devboard_ref.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Drivers/BSP/Components/ili9341/ili9341_devboard_ref.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Drivers/BSP/XPT2046</GroupName>
+          <Files>
+            <File>
+              <FileName>xpt2046.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Drivers/BSP/Components/xpt2046/xpt2046.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>UI/Core</GroupName>
+          <Files>
+            <File>
+              <FileName>bsp_stubs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../UI/Core/Src/bsp_stubs.c</FilePath>
+            </File>
+            <File>
+              <FileName>display_drv.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../UI/Core/Src/display_drv.c</FilePath>
+            </File>
+            <File>
+              <FileName>tianji_data.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../UI/Core/Src/tianji_data.c</FilePath>
+            </File>
+            <File>
+              <FileName>tianji_dial.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../UI/Core/Src/tianji_dial.c</FilePath>
+            </File>
+            <File>
+              <FileName>tianji_particles.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../UI/Core/Src/tianji_particles.c</FilePath>
+            </File>
+            <File>
+              <FileName>tianji_ui.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../UI/Core/Src/tianji_ui.c</FilePath>
+            </File>
+            <File>
+              <FileName>tianji_voice.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../UI/Core/Src/tianji_voice.c</FilePath>
+            </File>
+            <File>
+              <FileName>touch_drv.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../UI/Core/Src/touch_drv.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Utilities/Fonts</GroupName>
+          <Files>
+            <File>
+              <FileName>font8.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Utilities/Fonts/font8.c</FilePath>
+            </File>
+            <File>
+              <FileName>font12.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Utilities/Fonts/font12.c</FilePath>
+            </File>
+            <File>
+              <FileName>font16.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Utilities/Fonts/font16.c</FilePath>
+            </File>
+            <File>
+              <FileName>font20.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Utilities/Fonts/font20.c</FilePath>
+            </File>
+            <File>
+              <FileName>font24.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Utilities/Fonts/font24.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Utilities/Log</GroupName>
+          <Files>
+            <File>
+              <FileName>lcd_log.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Utilities/Log/lcd_log.c</FilePath>
             </File>
           </Files>
         </Group>

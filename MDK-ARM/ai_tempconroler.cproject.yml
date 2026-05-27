@@ -16,6 +16,13 @@ project:
         - ../LIBJPEG/Target
         - ../Drivers/STM32F4xx_HAL_Driver/Inc
         - ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy
+        - ../Drivers/BSP/Components/ili9341
+        - ../Drivers/BSP/Components/xpt2046
+        - ../Drivers/BSP/Components/Common
+        - ../UI/Core/Inc
+        - ../UI/LVGL
+        - ../Utilities/Fonts
+        - ../Utilities/Log
         - ../Middlewares/Third_Party/FreeRTOS/Source/include
         - ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS
         - ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F
@@ -186,5 +193,33 @@ project:
         - file: ../Middlewares/Third_Party/LibJPEG/source/jmemmgr.c
         - file: ../Middlewares/Third_Party/LibJPEG/source/jutils.c
         - file: ../Middlewares/Third_Party/LibJPEG/source/jmemnobs.c
+    - group: Drivers/BSP/ILI9341
+      files:
+        - file: ../Drivers/BSP/Components/ili9341/ili9341.c
+        - file: ../Drivers/BSP/Components/ili9341/fsmc_8080.c
+        - file: ../Drivers/BSP/Components/ili9341/ili9341_devboard_ref.c
+    - group: Drivers/BSP/XPT2046
+      files:
+        - file: ../Drivers/BSP/Components/xpt2046/xpt2046.c
+    - group: UI/Core
+      files:
+        - file: ../UI/Core/Src/bsp_stubs.c
+        - file: ../UI/Core/Src/display_drv.c
+        - file: ../UI/Core/Src/tianji_data.c
+        - file: ../UI/Core/Src/tianji_dial.c
+        - file: ../UI/Core/Src/tianji_particles.c
+        - file: ../UI/Core/Src/tianji_ui.c
+        - file: ../UI/Core/Src/tianji_voice.c
+        - file: ../UI/Core/Src/touch_drv.c
+    - group: Utilities/Fonts
+      files:
+        - file: ../Utilities/Fonts/font8.c
+        - file: ../Utilities/Fonts/font12.c
+        - file: ../Utilities/Fonts/font16.c
+        - file: ../Utilities/Fonts/font20.c
+        - file: ../Utilities/Fonts/font24.c
+    - group: Utilities/Log
+      files:
+        - file: ../Utilities/Log/lcd_log.c
   components:
     - component: ARM::CMSIS:CORE

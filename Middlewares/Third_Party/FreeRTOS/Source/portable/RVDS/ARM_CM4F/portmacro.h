@@ -1,29 +1,71 @@
 /*
- * FreeRTOS Kernel V10.3.1
- * Copyright (C) 2020 Amazon.com, Inc. or its affiliates.  All Rights Reserved.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of
- * this software and associated documentation files (the "Software"), to deal in
- * the Software without restriction, including without limitation the rights to
- * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
- * the Software, and to permit persons to whom the Software is furnished to do so,
- * subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
- * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
- * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
- * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- *
- * http://www.FreeRTOS.org
- * http://aws.amazon.com/freertos
- *
- * 1 tab == 4 spaces!
- */
+    FreeRTOS V8.2.1 - Copyright (C) 2015 Real Time Engineers Ltd.
+    All rights reserved
+
+    VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+
+    This file is part of the FreeRTOS distribution.
+
+    FreeRTOS is free software; you can redistribute it and/or modify it under
+    the terms of the GNU General Public License (version 2) as published by the
+    Free Software Foundation >>!AND MODIFIED BY!<< the FreeRTOS exception.
+
+    ***************************************************************************
+    >>!   NOTE: The modification to the GPL is included to allow you to     !<<
+    >>!   distribute a combined work that includes FreeRTOS without being   !<<
+    >>!   obliged to provide the source code for proprietary components     !<<
+    >>!   outside of the FreeRTOS kernel.                                   !<<
+    ***************************************************************************
+
+    FreeRTOS is distributed in the hope that it will be useful, but WITHOUT ANY
+    WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+    FOR A PARTICULAR PURPOSE.  Full license text is available on the following
+    link: http://www.freertos.org/a00114.html
+
+    ***************************************************************************
+     *                                                                       *
+     *    FreeRTOS provides completely free yet professionally developed,    *
+     *    robust, strictly quality controlled, supported, and cross          *
+     *    platform software that is more than just the market leader, it     *
+     *    is the industry's de facto standard.                               *
+     *                                                                       *
+     *    Help yourself get started quickly while simultaneously helping     *
+     *    to support the FreeRTOS project by purchasing a FreeRTOS           *
+     *    tutorial book, reference manual, or both:                          *
+     *    http://www.FreeRTOS.org/Documentation                              *
+     *                                                                       *
+    ***************************************************************************
+
+    http://www.FreeRTOS.org/FAQHelp.html - Having a problem?  Start by reading
+    the FAQ page "My application does not run, what could be wrong?".  Have you
+    defined configASSERT()?
+
+    http://www.FreeRTOS.org/support - In return for receiving this top quality
+    embedded software for free we request you assist our global community by
+    participating in the support forum.
+
+    http://www.FreeRTOS.org/training - Investing in training allows your team to
+    be as productive as possible as early as possible.  Now you can receive
+    FreeRTOS training directly from Richard Barry, CEO of Real Time Engineers
+    Ltd, and the world's leading authority on the world's leading RTOS.
+
+    http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+    including FreeRTOS+Trace - an indispensable productivity tool, a DOS
+    compatible FAT file system, and our tiny thread aware UDP/IP stack.
+
+    http://www.FreeRTOS.org/labs - Where new FreeRTOS products go to incubate.
+    Come and try FreeRTOS+TCP, our new open source TCP/IP stack for FreeRTOS.
+
+    http://www.OpenRTOS.com - Real Time Engineers ltd. license FreeRTOS to High
+    Integrity Systems ltd. to sell under the OpenRTOS brand.  Low cost OpenRTOS
+    licenses offer ticketed support, indemnification and commercial middleware.
+
+    http://www.SafeRTOS.com - High Integrity Systems also provide a safety
+    engineered and independently SIL3 certified version for use in safety and
+    mission critical applications that require provable dependability.
+
+    1 tab == 4 spaces!
+*/
 
 
 #ifndef PORTMACRO_H
@@ -73,24 +115,19 @@ typedef unsigned long UBaseType_t;
 #define portSTACK_GROWTH			( -1 )
 #define portTICK_PERIOD_MS			( ( TickType_t ) 1000 / configTICK_RATE_HZ )
 #define portBYTE_ALIGNMENT			8
-
-/* Constants used with memory barrier intrinsics. */
-#define portSY_FULL_READ_WRITE		( 15 )
-
 /*-----------------------------------------------------------*/
 
 /* Scheduler utilities. */
-#define portYIELD()																\
+#define portYIELD() 															\
 {																				\
 	/* Set a PendSV to request a context switch. */								\
 	portNVIC_INT_CTRL_REG = portNVIC_PENDSVSET_BIT;								\
 																				\
 	/* Barriers are normally not required but do ensure the code is completely	\
 	within the specified behaviour for the architecture. */						\
-	__dsb( portSY_FULL_READ_WRITE );											\
-	__isb( portSY_FULL_READ_WRITE );											\
+	__asm volatile( "dsb" );													\
+	__asm volatile( "isb" );													\
 }
-/*-----------------------------------------------------------*/
 
 #define portNVIC_INT_CTRL_REG		( * ( ( volatile uint32_t * ) 0xe000ed04 ) )
 #define portNVIC_PENDSVSET_BIT		( 1UL << 28UL )
@@ -101,14 +138,20 @@ typedef unsigned long UBaseType_t;
 /* Critical section management. */
 extern void vPortEnterCritical( void );
 extern void vPortExitCritical( void );
-
-#define portDISABLE_INTERRUPTS()				vPortRaiseBASEPRI()
-#define portENABLE_INTERRUPTS()					vPortSetBASEPRI( 0 )
-#define portENTER_CRITICAL()					vPortEnterCritical()
-#define portEXIT_CRITICAL()						vPortExitCritical()
 #define portSET_INTERRUPT_MASK_FROM_ISR()		ulPortRaiseBASEPRI()
 #define portCLEAR_INTERRUPT_MASK_FROM_ISR(x)	vPortSetBASEPRI(x)
+#define portDISABLE_INTERRUPTS()				vPortRaiseBASEPRI()
+#define portENABLE_INTERRUPTS()					vPortSetBASEPRI(0)
+#define portENTER_CRITICAL()					vPortEnterCritical()
+#define portEXIT_CRITICAL()						vPortExitCritical()
 
+/*-----------------------------------------------------------*/
+
+/* Task function macros as described on the FreeRTOS.org WEB site.  These are
+not necessary for to use this port.  They are defined so the common demo files
+(which build with all the ports) will build. */
+#define portTASK_FUNCTION_PROTO( vFunction, pvParameters ) void vFunction( void *pvParameters )
+#define portTASK_FUNCTION( vFunction, pvParameters ) void vFunction( void *pvParameters )
 /*-----------------------------------------------------------*/
 
 /* Tickless idle/low power functionality. */
@@ -118,12 +161,21 @@ extern void vPortExitCritical( void );
 #endif
 /*-----------------------------------------------------------*/
 
-/* Port specific optimisations. */
+/* Architecture specific optimisations. */
 #ifndef configUSE_PORT_OPTIMISED_TASK_SELECTION
 	#define configUSE_PORT_OPTIMISED_TASK_SELECTION 1
 #endif
 
 #if configUSE_PORT_OPTIMISED_TASK_SELECTION == 1
+
+	/* Generic helper function. */
+	__attribute__( ( always_inline ) ) static inline uint8_t ucPortCountLeadingZeros( uint32_t ulBitmap )
+	{
+	uint8_t ucReturn;
+
+		__asm volatile ( "clz %0, %1" : "=r" ( ucReturn ) : "r" ( ulBitmap ) );
+		return ucReturn;
+	}
 
 	/* Check the configuration. */
 	#if( configMAX_PRIORITIES > 32 )
@@ -136,16 +188,10 @@ extern void vPortExitCritical( void );
 
 	/*-----------------------------------------------------------*/
 
-	#define portGET_HIGHEST_PRIORITY( uxTopPriority, uxReadyPriorities ) uxTopPriority = ( 31UL - ( uint32_t ) __clz( ( uxReadyPriorities ) ) )
+	#define portGET_HIGHEST_PRIORITY( uxTopPriority, uxReadyPriorities ) uxTopPriority = ( 31 - ucPortCountLeadingZeros( ( uxReadyPriorities ) ) )
 
-#endif /* taskRECORD_READY_PRIORITY */
-/*-----------------------------------------------------------*/
+#endif /* configUSE_PORT_OPTIMISED_TASK_SELECTION */
 
-/* Task function macros as described on the FreeRTOS.org WEB site.  These are
-not necessary for to use this port.  They are defined so the common demo files
-(which build with all the ports) will build. */
-#define portTASK_FUNCTION_PROTO( vFunction, pvParameters ) void vFunction( void *pvParameters )
-#define portTASK_FUNCTION( vFunction, pvParameters ) void vFunction( void *pvParameters )
 /*-----------------------------------------------------------*/
 
 #ifdef configASSERT
@@ -156,159 +202,56 @@ not necessary for to use this port.  They are defined so the common demo files
 /* portNOP() is not required by this port. */
 #define portNOP()
 
-#define portINLINE __inline
-
 #ifndef portFORCE_INLINE
-	#if defined(__ARMCC_VERSION) && (__ARMCC_VERSION < 6000000)
-		#define portFORCE_INLINE __inline
-	#elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6000000)
-		#define portFORCE_INLINE __attribute__((always_inline)) inline
-	#else
-		#define portFORCE_INLINE __forceinline
-	#endif
+	#define portFORCE_INLINE inline __attribute__(( always_inline))
 #endif
 
 /*-----------------------------------------------------------*/
 
-#if defined( __ARMCC_VERSION ) && ( __ARMCC_VERSION >= 6000000 )
-	/* ARM Compiler 6 (armclang) -- GCC-style inline assembly */
+portFORCE_INLINE static void vPortRaiseBASEPRI( void )
+{
+uint32_t ulNewBASEPRI;
 
-	static portFORCE_INLINE void vPortSetBASEPRI( uint32_t ulBASEPRI )
-	{
-		__asm volatile( "msr basepri, %0" :: "r" ( ulBASEPRI ) : "memory" );
-	}
-	/*-----------------------------------------------------------*/
+	__asm volatile
+	(
+		"	mov %0, %1												\n"	\
+		"	msr basepri, %0											\n" \
+		"	isb														\n" \
+		"	dsb														\n" \
+		:"=r" (ulNewBASEPRI) : "i" ( configMAX_SYSCALL_INTERRUPT_PRIORITY )
+	);
+}
 
-	static portFORCE_INLINE void vPortRaiseBASEPRI( void )
-	{
-		uint32_t ulNewBASEPRI = configMAX_SYSCALL_INTERRUPT_PRIORITY;
-		__asm volatile (
-			"msr basepri, %0\n"
-			"dsb\n"
-			"isb\n"
-			:: "r" ( ulNewBASEPRI ) : "memory"
-		);
-	}
-	/*-----------------------------------------------------------*/
+/*-----------------------------------------------------------*/
 
-	static portFORCE_INLINE void vPortClearBASEPRIFromISR( void )
-	{
-		__asm volatile( "msr basepri, %0" :: "i" ( 0 ) : "memory" );
-	}
-	/*-----------------------------------------------------------*/
+portFORCE_INLINE static uint32_t ulPortRaiseBASEPRI( void )
+{
+uint32_t ulOriginalBASEPRI, ulNewBASEPRI;
 
-	static portFORCE_INLINE uint32_t ulPortRaiseBASEPRI( void )
-	{
-		uint32_t ulReturn, ulNewBASEPRI = configMAX_SYSCALL_INTERRUPT_PRIORITY;
-		__asm volatile (
-			"mrs %0, basepri\n"
-			"msr basepri, %1\n"
-			"dsb\n"
-			"isb\n"
-			: "=r" ( ulReturn ) : "r" ( ulNewBASEPRI ) : "memory"
-		);
-		return ulReturn;
-	}
-	/*-----------------------------------------------------------*/
+	__asm volatile
+	(
+		"	mrs %0, basepri											\n" \
+		"	mov %1, %2												\n"	\
+		"	msr basepri, %1											\n" \
+		"	isb														\n" \
+		"	dsb														\n" \
+		:"=r" (ulOriginalBASEPRI), "=r" (ulNewBASEPRI) : "i" ( configMAX_SYSCALL_INTERRUPT_PRIORITY )
+	);
 
-	static portFORCE_INLINE BaseType_t xPortIsInsideInterrupt( void )
-	{
-		uint32_t ulCurrentInterrupt;
-		BaseType_t xReturn;
-		__asm volatile( "mrs %0, ipsr" : "=r" ( ulCurrentInterrupt ) : : "memory" );
-		if( ulCurrentInterrupt == 0 )
-		{
-			xReturn = pdFALSE;
-		}
-		else
-		{
-			xReturn = pdTRUE;
-		}
-		return xReturn;
-	}
+	/* This return will not be reached but is necessary to prevent compiler
+	warnings. */
+	return ulOriginalBASEPRI;
+}
+/*-----------------------------------------------------------*/
 
-#else
-	/* ARM Compiler 5 (armcc) -- original RVDS inline assembly */
-
-	static portFORCE_INLINE void vPortSetBASEPRI( uint32_t ulBASEPRI )
-	{
-		__asm
-		{
-			/* Barrier instructions are not used as this function is only used to
-			lower the BASEPRI value. */
-			msr basepri, ulBASEPRI
-		}
-	}
-	/*-----------------------------------------------------------*/
-
-	static portFORCE_INLINE void vPortRaiseBASEPRI( void )
-	{
-	uint32_t ulNewBASEPRI = configMAX_SYSCALL_INTERRUPT_PRIORITY;
-
-		__asm
-		{
-			/* Set BASEPRI to the max syscall priority to effect a critical
-			section. */
-			msr basepri, ulNewBASEPRI
-			dsb
-			isb
-		}
-	}
-	/*-----------------------------------------------------------*/
-
-	static portFORCE_INLINE void vPortClearBASEPRIFromISR( void )
-	{
-		__asm
-		{
-			/* Set BASEPRI to 0 so no interrupts are masked.  This function is only
-			used to lower the mask in an interrupt, so memory barriers are not 
-			used. */
-			msr basepri, #0
-		}
-	}
-	/*-----------------------------------------------------------*/
-
-	static portFORCE_INLINE uint32_t ulPortRaiseBASEPRI( void )
-	{
-	uint32_t ulReturn, ulNewBASEPRI = configMAX_SYSCALL_INTERRUPT_PRIORITY;
-
-		__asm
-		{
-			/* Set BASEPRI to the max syscall priority to effect a critical
-			section. */
-			mrs ulReturn, basepri
-			msr basepri, ulNewBASEPRI
-			dsb
-			isb
-		}
-
-		return ulReturn;
-	}
-	/*-----------------------------------------------------------*/
-
-	static portFORCE_INLINE BaseType_t xPortIsInsideInterrupt( void )
-	{
-	uint32_t ulCurrentInterrupt;
-	BaseType_t xReturn;
-
-		/* Obtain the number of the currently executing interrupt. */
-		__asm
-		{
-			mrs ulCurrentInterrupt, ipsr
-		}
-
-		if( ulCurrentInterrupt == 0 )
-		{
-			xReturn = pdFALSE;
-		}
-		else
-		{
-			xReturn = pdTRUE;
-		}
-
-		return xReturn;
-	}
-#endif /* __ARMCC_VERSION >= 6000000 */
+portFORCE_INLINE static void vPortSetBASEPRI( uint32_t ulNewMaskValue )
+{
+	__asm volatile
+	(
+		"	msr basepri, %0	" :: "r" ( ulNewMaskValue )
+	);
+}
+/*-----------------------------------------------------------*/
 
 
 #ifdef __cplusplus
@@ -316,3 +259,4 @@ not necessary for to use this port.  They are defined so the common demo files
 #endif
 
 #endif /* PORTMACRO_H */
+
