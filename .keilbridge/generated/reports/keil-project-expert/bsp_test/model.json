@@ -1,0 +1,1589 @@
+﻿{
+  "project_file": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/MDK-ARM/ai_tempconroler_bsp_test.uvprojx",
+  "keil_project_dir": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/MDK-ARM",
+  "inferred_project_root": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler",
+  "target": {
+    "name": "bsp_test",
+    "device": "STM32F407ZGTx",
+    "vendor": "st",
+    "family": "stm32f4",
+    "core": "cortex-m4",
+    "fpu": "fpv4-sp-d16",
+    "float_abi": "hard",
+    "cpu": "IRAM(0x20000000-0x2001BFFF) IRAM2(0x2001C000-0x2001FFFF) IROM(0x8000000-0x80FFFFF) CLOCK(25000000) FPU2 CPUTYPE(\"Cortex-M4\") TZ",
+    "memory": [
+      {
+        "name": "RAM",
+        "origin": "0x20000000",
+        "length": "112K"
+      },
+      {
+        "name": "RAM",
+        "origin": "0x2001C000",
+        "length": "16K"
+      },
+      {
+        "name": "FLASH",
+        "origin": "0x08000000",
+        "length": "1024K"
+      }
+    ],
+    "sources": [
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/MDK-ARM/startup_stm32f407xx.s",
+        "kind": "startup",
+        "group": "Application/MDK-ARM"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Tests/BSP/main_bsp_test.c",
+        "kind": "c",
+        "group": "Application/User/Core"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Core/Src/gpio.c",
+        "kind": "c",
+        "group": "Application/User/Core"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Core/Src/freertos.c",
+        "kind": "c",
+        "group": "Application/User/Core"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Core/Src/fsmc.c",
+        "kind": "c",
+        "group": "Application/User/Core"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Core/Src/stm32f4xx_it.c",
+        "kind": "c",
+        "group": "Application/User/Core"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Core/Src/stm32f4xx_hal_msp.c",
+        "kind": "c",
+        "group": "Application/User/Core"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Core/Src/stm32f4xx_hal_timebase_tim.c",
+        "kind": "c",
+        "group": "Application/User/Core"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/FATFS/Target/bsp_driver_sram.c",
+        "kind": "c",
+        "group": "Application/User/FATFS/Target"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/FATFS/Target/sram_diskio.c",
+        "kind": "c",
+        "group": "Application/User/FATFS/Target"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/FATFS/App/fatfs.c",
+        "kind": "c",
+        "group": "Application/User/FATFS/App"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/LIBJPEG/App/libjpeg.c",
+        "kind": "c",
+        "group": "Application/User/LIBJPEG/App"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/LIBJPEG/Target/jdata_conf.c",
+        "kind": "c",
+        "group": "Application/User/LIBJPEG/Target"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c",
+        "kind": "c",
+        "group": "Drivers/STM32F4xx_HAL_Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c",
+        "kind": "c",
+        "group": "Drivers/STM32F4xx_HAL_Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c",
+        "kind": "c",
+        "group": "Drivers/STM32F4xx_HAL_Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c",
+        "kind": "c",
+        "group": "Drivers/STM32F4xx_HAL_Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c",
+        "kind": "c",
+        "group": "Drivers/STM32F4xx_HAL_Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c",
+        "kind": "c",
+        "group": "Drivers/STM32F4xx_HAL_Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c",
+        "kind": "c",
+        "group": "Drivers/STM32F4xx_HAL_Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c",
+        "kind": "c",
+        "group": "Drivers/STM32F4xx_HAL_Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c",
+        "kind": "c",
+        "group": "Drivers/STM32F4xx_HAL_Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c",
+        "kind": "c",
+        "group": "Drivers/STM32F4xx_HAL_Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c",
+        "kind": "c",
+        "group": "Drivers/STM32F4xx_HAL_Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c",
+        "kind": "c",
+        "group": "Drivers/STM32F4xx_HAL_Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c",
+        "kind": "c",
+        "group": "Drivers/STM32F4xx_HAL_Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c",
+        "kind": "c",
+        "group": "Drivers/STM32F4xx_HAL_Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c",
+        "kind": "c",
+        "group": "Drivers/STM32F4xx_HAL_Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_fsmc.c",
+        "kind": "c",
+        "group": "Drivers/STM32F4xx_HAL_Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_nor.c",
+        "kind": "c",
+        "group": "Drivers/STM32F4xx_HAL_Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_sram.c",
+        "kind": "c",
+        "group": "Drivers/STM32F4xx_HAL_Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_nand.c",
+        "kind": "c",
+        "group": "Drivers/STM32F4xx_HAL_Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pccard.c",
+        "kind": "c",
+        "group": "Drivers/STM32F4xx_HAL_Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Core/Src/system_stm32f4xx.c",
+        "kind": "c",
+        "group": "Drivers/CMSIS"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FatFs/src/diskio.c",
+        "kind": "c",
+        "group": "Middlewares/FatFs"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FatFs/src/ff.c",
+        "kind": "c",
+        "group": "Middlewares/FatFs"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FatFs/src/ff_gen_drv.c",
+        "kind": "c",
+        "group": "Middlewares/FatFs"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FatFs/src/option/syscall.c",
+        "kind": "c",
+        "group": "Middlewares/FatFs"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FreeRTOS/Source/croutine.c",
+        "kind": "c",
+        "group": "Middlewares/FreeRTOS"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c",
+        "kind": "c",
+        "group": "Middlewares/FreeRTOS"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FreeRTOS/Source/list.c",
+        "kind": "c",
+        "group": "Middlewares/FreeRTOS"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FreeRTOS/Source/queue.c",
+        "kind": "c",
+        "group": "Middlewares/FreeRTOS"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c",
+        "kind": "c",
+        "group": "Middlewares/FreeRTOS"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FreeRTOS/Source/tasks.c",
+        "kind": "c",
+        "group": "Middlewares/FreeRTOS"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FreeRTOS/Source/timers.c",
+        "kind": "c",
+        "group": "Middlewares/FreeRTOS"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c",
+        "kind": "c",
+        "group": "Middlewares/FreeRTOS"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c",
+        "kind": "c",
+        "group": "Middlewares/FreeRTOS"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c",
+        "kind": "c",
+        "group": "Middlewares/FreeRTOS"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jcapimin.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jcapistd.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jdapimin.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jdapistd.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jcomapi.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jcparam.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jctrans.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jdtrans.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jcinit.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jcmaster.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jcmainct.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jcprepct.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jccoefct.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jccolor.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jcsample.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jcdctmgr.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jfdctint.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jfdctfst.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jfdctflt.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jchuff.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jcarith.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jcmarker.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jdatadst.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jdmaster.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jdinput.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jdmainct.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jdcoefct.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jdpostct.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jdmarker.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jdhuff.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jdarith.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jddctmgr.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jidctint.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jidctfst.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jidctflt.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jdsample.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jdcolor.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jdmerge.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jquant1.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jquant2.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jdatasrc.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jaricom.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jerror.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jmemmgr.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jutils.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/source/jmemnobs.c",
+        "kind": "c",
+        "group": "Middlewares/LibJPEG"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/UI/Core/Src/bsp_stubs.c",
+        "kind": "c",
+        "group": "Application/User/UI"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/UI/Core/Src/display_drv.c",
+        "kind": "c",
+        "group": "Application/User/UI"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/UI/Core/Src/touch_drv.c",
+        "kind": "c",
+        "group": "Application/User/UI"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/UI/Core/Src/tianji_data.c",
+        "kind": "c",
+        "group": "Application/User/UI"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/UI/Core/Src/tianji_dial.c",
+        "kind": "c",
+        "group": "Application/User/UI"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/UI/Core/Src/tianji_particles.c",
+        "kind": "c",
+        "group": "Application/User/UI"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/UI/Core/Src/tianji_ui.c",
+        "kind": "c",
+        "group": "Application/User/UI"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/UI/Core/Src/tianji_voice.c",
+        "kind": "c",
+        "group": "Application/User/UI"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/BSP/Adafruit_Shield/stm32_adafruit_lcd.c",
+        "kind": "c",
+        "group": "Drivers/BSP/DisplayTouch"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/BSP/Adafruit_Shield/lcd_io_fsmc.c",
+        "kind": "c",
+        "group": "Drivers/BSP/DisplayTouch"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/BSP/Components/ili9341/ili9341.c",
+        "kind": "c",
+        "group": "Drivers/BSP/DisplayTouch"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/BSP/Components/xpt2046/xpt2046.c",
+        "kind": "c",
+        "group": "Drivers/BSP/DisplayTouch"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/core/lv_disp.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/core/lv_event.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/core/lv_group.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/core/lv_indev.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/core/lv_indev_scroll.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/core/lv_obj.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/core/lv_obj_class.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/core/lv_obj_draw.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/core/lv_obj_pos.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/core/lv_obj_scroll.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/core/lv_obj_style.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/core/lv_obj_style_gen.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/core/lv_obj_tree.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/core/lv_refr.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/core/lv_theme.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/arm2d/lv_gpu_arm2d.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/lv_draw.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/lv_draw_arc.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/lv_draw_img.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/lv_draw_label.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/lv_draw_layer.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/lv_draw_line.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/lv_draw_mask.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/lv_draw_rect.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/lv_draw_transform.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/lv_draw_triangle.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/lv_img_buf.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/lv_img_cache.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/lv_img_decoder.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/nxp/pxp/lv_draw_pxp.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/nxp/pxp/lv_draw_pxp_blend.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/nxp/pxp/lv_gpu_nxp_pxp.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/nxp/pxp/lv_gpu_nxp_pxp_osa.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/nxp/vglite/lv_draw_vglite.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/nxp/vglite/lv_draw_vglite_arc.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/nxp/vglite/lv_draw_vglite_blend.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/nxp/vglite/lv_draw_vglite_line.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/nxp/vglite/lv_draw_vglite_rect.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/nxp/vglite/lv_vglite_buf.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/nxp/vglite/lv_vglite_utils.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/renesas/lv_gpu_d2_draw_label.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/renesas/lv_gpu_d2_ra6m3.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/sdl/lv_draw_sdl.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/sdl/lv_draw_sdl_arc.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/sdl/lv_draw_sdl_bg.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/sdl/lv_draw_sdl_composite.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/sdl/lv_draw_sdl_img.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/sdl/lv_draw_sdl_label.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/sdl/lv_draw_sdl_layer.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/sdl/lv_draw_sdl_line.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/sdl/lv_draw_sdl_mask.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/sdl/lv_draw_sdl_polygon.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/sdl/lv_draw_sdl_rect.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/sdl/lv_draw_sdl_stack_blur.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/sdl/lv_draw_sdl_texture_cache.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/sdl/lv_draw_sdl_utils.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/stm32_dma2d/lv_gpu_stm32_dma2d.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/sw/lv_draw_sw.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/sw/lv_draw_sw_arc.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/sw/lv_draw_sw_blend.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/sw/lv_draw_sw_dither.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/sw/lv_draw_sw_gradient.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/sw/lv_draw_sw_img.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/sw/lv_draw_sw_layer.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/sw/lv_draw_sw_letter.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/sw/lv_draw_sw_line.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/sw/lv_draw_sw_polygon.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/sw/lv_draw_sw_rect.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/sw/lv_draw_sw_transform.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/draw/swm341_dma2d/lv_gpu_swm341_dma2d.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/layouts/flex/lv_flex.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/layouts/grid/lv_grid.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/libs/bmp/lv_bmp.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/libs/ffmpeg/lv_ffmpeg.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/libs/freetype/lv_freetype.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/libs/fsdrv/lv_fs_fatfs.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/libs/fsdrv/lv_fs_littlefs.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/libs/fsdrv/lv_fs_posix.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/libs/fsdrv/lv_fs_stdio.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/libs/fsdrv/lv_fs_win32.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/libs/gif/gifdec.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/libs/gif/lv_gif.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/libs/png/lodepng.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/libs/png/lv_png.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/libs/qrcode/lv_qrcode.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/libs/qrcode/qrcodegen.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/libs/rlottie/lv_rlottie.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/libs/sjpg/lv_sjpg.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/libs/sjpg/tjpgd.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/libs/tiny_ttf/lv_tiny_ttf.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/lv_extra.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/others/fragment/lv_fragment.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/others/fragment/lv_fragment_manager.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/others/gridnav/lv_gridnav.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/others/ime/lv_ime_pinyin.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/others/imgfont/lv_imgfont.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/others/monkey/lv_monkey.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/others/msg/lv_msg.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/others/snapshot/lv_snapshot.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/themes/basic/lv_theme_basic.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/themes/default/lv_theme_default.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/themes/mono/lv_theme_mono.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/widgets/animimg/lv_animimg.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/widgets/calendar/lv_calendar.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/widgets/calendar/lv_calendar_header_arrow.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/widgets/calendar/lv_calendar_header_dropdown.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/widgets/chart/lv_chart.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/widgets/keyboard/lv_keyboard.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/widgets/led/lv_led.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/widgets/list/lv_list.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/widgets/menu/lv_menu.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/widgets/meter/lv_meter.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/widgets/msgbox/lv_msgbox.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/widgets/span/lv_span.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/widgets/spinbox/lv_spinbox.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/widgets/spinner/lv_spinner.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/widgets/tabview/lv_tabview.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/widgets/tileview/lv_tileview.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/extra/widgets/win/lv_win.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_dejavu_16_persian_hebrew.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_fmt_txt.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_loader.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_10.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_12.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_12_subpx.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_14.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_16.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_18.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_20.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_22.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_24.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_26.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_28.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_28_compressed.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_30.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_32.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_34.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_36.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_38.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_40.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_42.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_44.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_46.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_48.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_8.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_simsun_16_cjk.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_unscii_16.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/font/lv_font_unscii_8.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/hal/lv_hal_disp.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/hal/lv_hal_indev.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/hal/lv_hal_tick.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/misc/lv_anim.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/misc/lv_anim_timeline.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/misc/lv_area.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/misc/lv_async.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/misc/lv_bidi.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/misc/lv_color.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/misc/lv_fs.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/misc/lv_gc.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/misc/lv_ll.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/misc/lv_log.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/misc/lv_lru.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/misc/lv_math.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/misc/lv_mem.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/misc/lv_printf.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/misc/lv_style.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/misc/lv_style_gen.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/misc/lv_templ.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/misc/lv_timer.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/misc/lv_tlsf.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/misc/lv_txt.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/misc/lv_txt_ap.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/misc/lv_utils.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/widgets/lv_arc.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/widgets/lv_bar.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/widgets/lv_btn.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/widgets/lv_btnmatrix.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/widgets/lv_canvas.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/widgets/lv_checkbox.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/widgets/lv_dropdown.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/widgets/lv_img.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/widgets/lv_label.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/widgets/lv_line.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/widgets/lv_objx_templ.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/widgets/lv_roller.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/widgets/lv_slider.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/widgets/lv_switch.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/widgets/lv_table.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src/widgets/lv_textarea.c",
+        "kind": "c",
+        "group": "Middlewares/LVGL"
+      }
+    ],
+    "includes": [
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Core/Inc",
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/FATFS/Target",
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/FATFS/App",
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/LIBJPEG/App",
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/LIBJPEG/Target",
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Inc",
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy",
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FreeRTOS/Source/include",
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS",
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F",
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FatFs/src",
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/LibJPEG/include",
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/CMSIS/Device/ST/STM32F4xx/Include",
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/CMSIS/Include",
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/UI/Core/Inc",
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/BSP/Adafruit_Shield",
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/BSP/Components/Common",
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/BSP/Components/ili9341",
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/BSP/Components/xpt2046",
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl",
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/lvgl/src",
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/UI/LVGL"
+    ],
+    "defines": [
+      "USE_HAL_DRIVER",
+      "STM32F407xx",
+      "BSP_TEST_TARGET"
+    ],
+    "libraries": [],
+    "startup_files": [
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/MDK-ARM/startup_stm32f407xx.s"
+    ],
+    "scatter_file": "",
+    "scatter_candidates": [
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/MDK-ARM/ai_tempconroler/ai_tempconroler.sct"
+    ],
+    "device_info": {
+      "matched": false,
+      "device": "STM32F407ZGTx",
+      "vendor": "",
+      "family": "",
+      "core": "",
+      "fpu": "",
+      "float_abi": "",
+      "openocd_target": "",
+      "memory": []
+    },
+    "features": {
+      "framework": "stm32_hal",
+      "generated_by": "stm32cubemx",
+      "rtos": [
+        "freertos"
+      ],
+      "middleware": [
+        "fatfs"
+      ],
+      "evidence": [
+        "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/ai_tempconroler.ioc",
+        "STM32 HAL driver path or USE_HAL_DRIVER define",
+        "FreeRTOS path or FreeRTOSConfig.h"
+      ]
+    },
+    "c_standard": "c11",
+    "optimization": ""
+  }
+}

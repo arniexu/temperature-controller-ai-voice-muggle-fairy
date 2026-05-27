@@ -1,0 +1,3 @@
+[submodule ".tools/keilbridge"]
+	path = .tools/keilbridge
+	url = https://github.com/arniexu/keilbridge.git

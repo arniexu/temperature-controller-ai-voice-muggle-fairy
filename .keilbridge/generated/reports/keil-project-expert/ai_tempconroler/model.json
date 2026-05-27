@@ -1,0 +1,230 @@
+﻿{
+  "project_file": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/MDK-ARM/ai_tempconroler.uvprojx",
+  "keil_project_dir": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/MDK-ARM",
+  "inferred_project_root": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler",
+  "target": {
+    "name": "ai_tempconroler",
+    "device": "STM32F407ZGTx",
+    "vendor": "st",
+    "family": "stm32f4",
+    "core": "cortex-m4",
+    "fpu": "fpv4-sp-d16",
+    "float_abi": "hard",
+    "cpu": "IRAM(0x20000000,0x20000) IRAM2(0x10000000,0x10000) IROM(0x08000000,0x100000) CPUTYPE(\"Cortex-M4\") FPU2 CLOCK(12000000) ELITTLE",
+    "memory": [],
+    "sources": [
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Core/Src/main.c",
+        "kind": "c",
+        "group": "Core"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Core/Src/gpio.c",
+        "kind": "c",
+        "group": "Core"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Core/Src/fsmc.c",
+        "kind": "c",
+        "group": "Core"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Core/Src/freertos.c",
+        "kind": "c",
+        "group": "Core"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Core/Src/stm32f4xx_it.c",
+        "kind": "c",
+        "group": "Core"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Core/Src/stm32f4xx_hal_msp.c",
+        "kind": "c",
+        "group": "Core"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/MDK-ARM/startup_stm32f407xx.s",
+        "kind": "startup",
+        "group": "Startup"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Core/Src/system_stm32f4xx.c",
+        "kind": "c",
+        "group": "Startup"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c",
+        "kind": "c",
+        "group": "HAL Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c",
+        "kind": "c",
+        "group": "HAL Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c",
+        "kind": "c",
+        "group": "HAL Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c",
+        "kind": "c",
+        "group": "HAL Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c",
+        "kind": "c",
+        "group": "HAL Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c",
+        "kind": "c",
+        "group": "HAL Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c",
+        "kind": "c",
+        "group": "HAL Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c",
+        "kind": "c",
+        "group": "HAL Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c",
+        "kind": "c",
+        "group": "HAL Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c",
+        "kind": "c",
+        "group": "HAL Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c",
+        "kind": "c",
+        "group": "HAL Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c",
+        "kind": "c",
+        "group": "HAL Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c",
+        "kind": "c",
+        "group": "HAL Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_sram.c",
+        "kind": "c",
+        "group": "HAL Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_fsmc.c",
+        "kind": "c",
+        "group": "HAL Driver"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c",
+        "kind": "c",
+        "group": "FreeRTOS"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FreeRTOS/Source/tasks.c",
+        "kind": "c",
+        "group": "FreeRTOS"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FreeRTOS/Source/queue.c",
+        "kind": "c",
+        "group": "FreeRTOS"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FreeRTOS/Source/list.c",
+        "kind": "c",
+        "group": "FreeRTOS"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FreeRTOS/Source/timers.c",
+        "kind": "c",
+        "group": "FreeRTOS"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c",
+        "kind": "c",
+        "group": "FreeRTOS"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c",
+        "kind": "c",
+        "group": "FreeRTOS"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FreeRTOS/Source/croutine.c",
+        "kind": "c",
+        "group": "FreeRTOS"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c",
+        "kind": "c",
+        "group": "FreeRTOS"
+      },
+      {
+        "path": "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c",
+        "kind": "c",
+        "group": "FreeRTOS"
+      }
+    ],
+    "includes": [
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Core/Inc",
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/STM32F4xx_HAL_Driver/Inc",
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/CMSIS/Device/ST/STM32F4xx/Include",
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Drivers/CMSIS/Include",
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FreeRTOS/Source/include",
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS",
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"
+    ],
+    "defines": [
+      "USE_HAL_DRIVER",
+      "STM32F407xx"
+    ],
+    "libraries": [],
+    "startup_files": [
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/MDK-ARM/startup_stm32f407xx.s"
+    ],
+    "scatter_file": "",
+    "scatter_candidates": [
+      "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/MDK-ARM/ai_tempconroler/ai_tempconroler.sct"
+    ],
+    "device_info": {
+      "matched": false,
+      "device": "STM32F407ZGTx",
+      "vendor": "",
+      "family": "",
+      "core": "",
+      "fpu": "",
+      "float_abi": "",
+      "openocd_target": "",
+      "memory": []
+    },
+    "features": {
+      "framework": "stm32_hal",
+      "generated_by": "stm32cubemx",
+      "rtos": [
+        "freertos"
+      ],
+      "middleware": [],
+      "evidence": [
+        "C:/Users/xuqianjx/OneDrive - Intel Corporation/Desktop/ai_tempcontroller/ai_tempconroler/ai_tempconroler.ioc",
+        "STM32 HAL driver path or USE_HAL_DRIVER define",
+        "FreeRTOS path or FreeRTOSConfig.h"
+      ]
+    },
+    "c_standard": "c11",
+    "optimization": ""
+  }
+}

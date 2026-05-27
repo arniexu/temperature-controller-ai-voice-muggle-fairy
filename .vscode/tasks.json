@@ -1,0 +1,284 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Keil Build bsp_test",
+			"type": "shell",
+			"command": "C:\\Users\\xuqianjx\\AppData\\Local\\Keil_v5\\UV4\\UV4.exe",
+			"args": [
+				"-b",
+				"MDK-ARM\\ai_tempconroler_bsp_test.uvprojx",
+				"-t",
+				"bsp_test",
+				"-j0",
+				"-o",
+				"MDK-ARM\\bsp_test_cli.log"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Keil Build bsp_test via cmd",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"\"\"C:\\Users\\xuqianjx\\AppData\\Local\\Keil_v5\\UV4\\UV4.exe\" -b \"MDK-ARM\\ai_tempconroler_bsp_test.uvprojx\" -t \"bsp_test\" -j0 -o \"MDK-ARM\\bsp_test_cli.log\"\""
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Keil Build bsp_test abs",
+			"type": "shell",
+			"command": "C:\\Users\\xuqianjx\\AppData\\Local\\Keil_v5\\UV4\\UV4.exe",
+			"args": [
+				"-b",
+				"C:\\Users\\xuqianjx\\OneDrive - Intel Corporation\\Desktop\\ai_tempcontroller\\ai_tempconroler\\MDK-ARM\\ai_tempconroler_bsp_test.uvprojx",
+				"-t",
+				"bsp_test",
+				"-j0",
+				"-o",
+				"C:\\Users\\xuqianjx\\OneDrive - Intel Corporation\\Desktop\\ai_tempcontroller\\ai_tempconroler\\MDK-ARM\\bsp_test_cli.log"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Check uvprojx encoding",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"$f1='MDK-ARM\\ai_tempconroler_bsp_test.uvprojx'; $f2='MDK-ARM\\ai_tempconroler.uvprojx'; function Show-Enc([string]$p){ $bytes=[System.IO.File]::ReadAllBytes($p); $head=($bytes[0..([Math]::Min(7,$bytes.Length-1))] | ForEach-Object { $_.ToString('X2') }) -join ' '; $bom = if($bytes.Length -ge 3 -and $bytes[0]-eq 0xEF -and $bytes[1]-eq 0xBB -and $bytes[2]-eq 0xBF){'UTF8-BOM'} elseif($bytes.Length -ge 2 -and $bytes[0]-eq 0xFF -and $bytes[1]-eq 0xFE){'UTF16-LE'} elseif($bytes.Length -ge 2 -and $bytes[0]-eq 0xFE -and $bytes[1]-eq 0xFF){'UTF16-BE'} else {'No-BOM/Other'}; Write-Output \"FILE=$p\"; Write-Output \"BOM=$bom\"; Write-Output \"HEAD=$head\"; try { [xml](Get-Content $p -Raw) | Out-Null; Write-Output 'XML=OK' } catch { Write-Output 'XML=FAIL'; Write-Output $_.Exception.Message } }; Show-Enc $f1; Show-Enc $f2"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Run encoding check script",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"MDK-ARM\\check_encoding.ps1"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Fix main uvprojx structure",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"$path='MDK-ARM\\ai_tempconroler.uvprojx'; $content=Get-Content -Path $path -Raw; $endTag='</Project>'; $idx=$content.IndexOf($endTag); if($idx -lt 0){ Write-Error 'END_TAG_NOT_FOUND'; exit 1 }; $trimmed=$content.Substring(0,$idx + $endTag.Length).TrimEnd() + \"`r`n\"; [System.IO.File]::WriteAllText((Resolve-Path $path), $trimmed, [System.Text.UTF8Encoding]::new($false)); [xml](Get-Content -Path $path -Raw) | Out-Null; Write-Output 'TRIMMED_OK XML_PARSE_OK'"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Run main uvprojx fix script",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"MDK-ARM\\fix_main_uvprojx.ps1"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Keil Build main target",
+			"type": "shell",
+			"command": "C:\\Users\\xuqianjx\\AppData\\Local\\Keil_v5\\UV4\\UV4.exe",
+			"args": [
+				"-b",
+				"MDK-ARM\\ai_tempconroler.uvprojx",
+				"-t",
+				"ai_tempconroler",
+				"-j0",
+				"-o",
+				"MDK-ARM\\build_cli.log"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Keil Rebuild main after include fix",
+			"type": "shell",
+			"command": "C:\\Users\\xuqianjx\\AppData\\Local\\Keil_v5\\UV4\\UV4.exe",
+			"args": [
+				"-r",
+				"MDK-ARM\\ai_tempconroler.uvprojx",
+				"-t",
+				"ai_tempconroler",
+				"-j0",
+				"-o",
+				"MDK-ARM\\build_cli.log"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Keil Rebuild main verify ffconf",
+			"type": "shell",
+			"command": "C:\\Users\\xuqianjx\\AppData\\Local\\Keil_v5\\UV4\\UV4.exe",
+			"args": [
+				"-r",
+				"MDK-ARM\\ai_tempconroler.uvprojx",
+				"-t",
+				"ai_tempconroler",
+				"-j0",
+				"-o",
+				"MDK-ARM\\build_cli.log"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Keil Rebuild main after ffconf include fix",
+			"type": "shell",
+			"command": "C:\\Users\\xuqianjx\\AppData\\Local\\Keil_v5\\UV4\\UV4.exe",
+			"args": [
+				"-r",
+				"MDK-ARM\\ai_tempconroler.uvprojx",
+				"-t",
+				"ai_tempconroler",
+				"-j0",
+				"-o",
+				"MDK-ARM\\build_cli.log"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Keil Rebuild main after libjpeg include fix",
+			"type": "shell",
+			"command": "C:\\Users\\xuqianjx\\AppData\\Local\\Keil_v5\\UV4\\UV4.exe",
+			"args": [
+				"-r",
+				"MDK-ARM\\ai_tempconroler.uvprojx",
+				"-t",
+				"ai_tempconroler",
+				"-j0",
+				"-o",
+				"MDK-ARM\\build_cli.log"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Keil Rebuild main after jpeglib include fix",
+			"type": "shell",
+			"command": "C:\\Users\\xuqianjx\\AppData\\Local\\Keil_v5\\UV4\\UV4.exe",
+			"args": [
+				"-r",
+				"MDK-ARM\\ai_tempconroler.uvprojx",
+				"-t",
+				"ai_tempconroler",
+				"-j0",
+				"-o",
+				"MDK-ARM\\build_cli.log"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Add sources to main uvprojx",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"MDK-ARM\\add_main_project_sources.ps1"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Add sources to main uvprojx retry",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"MDK-ARM\\add_main_project_sources.ps1"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Keil Rebuild main after adding UI sources",
+			"type": "shell",
+			"command": "C:\\Users\\xuqianjx\\AppData\\Local\\Keil_v5\\UV4\\UV4.exe",
+			"args": [
+				"-r",
+				"MDK-ARM\\ai_tempconroler.uvprojx",
+				"-t",
+				"ai_tempconroler",
+				"-j0",
+				"-o",
+				"MDK-ARM\\build_cli.log"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Verify main project after sidecar reset",
+			"type": "shell",
+			"command": "C:\\Users\\xuqianjx\\AppData\\Local\\Keil_v5\\UV4\\UV4.exe",
+			"args": [
+				"-r",
+				"MDK-ARM\\ai_tempconroler.uvprojx",
+				"-t",
+				"ai_tempconroler",
+				"-j0",
+				"-o",
+				"MDK-ARM\\build_cli.log"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Verify bsp_test after sidecar reset",
+			"type": "shell",
+			"command": "C:\\Users\\xuqianjx\\AppData\\Local\\Keil_v5\\UV4\\UV4.exe",
+			"args": [
+				"-r",
+				"MDK-ARM\\ai_tempconroler_bsp_test.uvprojx",
+				"-t",
+				"bsp_test",
+				"-j0",
+				"-o",
+				"MDK-ARM\\bsp_test_cli.log"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Direct UV4 Rebuild validate",
+			"type": "shell",
+			"command": "C:\\Users\\xuqianjx\\AppData\\Local\\Keil_v5\\UV4\\UV4.exe",
+			"args": [
+				"-r",
+				"MDK-ARM\\ai_tempconroler.uvprojx",
+				"-t",
+				"ai_tempconroler",
+				"-j0",
+				"-o",
+				"MDK-ARM\\build_cli.log"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "UV4 Rebuild now",
+			"type": "shell",
+			"command": "C:\\Users\\xuqianjx\\AppData\\Local\\Keil_v5\\UV4\\UV4.exe",
+			"args": [
+				"-r",
+				"MDK-ARM\\ai_tempconroler.uvprojx",
+				"-t",
+				"ai_tempconroler",
+				"-j0",
+				"-o",
+				"MDK-ARM\\build_cli.log"
+			],
+			"isBackground": false
+		}
+	]
+}

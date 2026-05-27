@@ -1,0 +1,122 @@
+{
+  "project": "MDK-ARM/ai_tempconroler.uvprojx",
+  "target": "ai_tempconroler",
+  "issues": [
+    {
+      "id": "KPAI-001",
+      "title": "Invalid include path ../Hardware/Inc",
+      "severity": "error",
+      "category": "path",
+      "source": "keilbridge:model",
+      "evidence": [
+        "Historical KeilBridge model flagged a missing include path under ../Hardware/Inc before the current repair baseline."
+      ],
+      "status": "resolved",
+      "repair": "Removed the nonexistent include path from the target IncludePath list.",
+      "validation": "Current model.json contains 7 existing include paths and no known missing include path entries.",
+      "last_updated": "2026-05-27 09:58:24"
+    },
+    {
+      "id": "KPAI-002",
+      "title": "Invalid include path ../Hardware/Display",
+      "severity": "error",
+      "category": "path",
+      "source": "keilbridge:model",
+      "evidence": [
+        "Historical KeilBridge model flagged a missing include path under ../Hardware/Display before the current repair baseline."
+      ],
+      "status": "resolved",
+      "repair": "Removed the nonexistent display include path from the target IncludePath list.",
+      "validation": "Current model.json contains only existing include paths for Core, CMSIS, HAL, and FreeRTOS GCC portable directories.",
+      "last_updated": "2026-05-27 09:58:24"
+    },
+    {
+      "id": "KPAI-003",
+      "title": "Startup system source pointed to missing CMSIS template",
+      "severity": "error",
+      "category": "startup",
+      "source": "keilbridge:model",
+      "evidence": [
+        "Historical KeilBridge model flagged the startup companion system file path as missing before the current repair baseline."
+      ],
+      "status": "resolved",
+      "repair": "Repointed the target system source entry to Core/Src/system_stm32f4xx.c.",
+      "validation": "Current model.json lists Core/Src/system_stm32f4xx.c in the Startup group.",
+      "last_updated": "2026-05-27 09:58:24"
+    },
+    {
+      "id": "KPAI-004",
+      "title": "FreeRTOS port.c pointed to missing RVDS port",
+      "severity": "error",
+      "category": "path",
+      "source": "keilbridge:model",
+      "evidence": [
+        "Historical KeilBridge model flagged the RVDS FreeRTOS portable path as missing before the current repair baseline."
+      ],
+      "status": "resolved",
+      "repair": "Switched the target source entry to Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.",
+      "validation": "Current model.json lists the GCC ARM_CM4F port.c source in the FreeRTOS group.",
+      "last_updated": "2026-05-27 09:58:24"
+    },
+    {
+      "id": "KPAI-005",
+      "title": "Main project source-group coverage is incomplete for current production code",
+      "severity": "warning",
+      "category": "group",
+      "source": "keilbridge:inspect",
+      "evidence": [
+        "inspect.txt reports Sources: 33 and only four groups: Core, FreeRTOS, HAL Driver, Startup.",
+        "Core/Src/main.c includes fatfs.h and libjpeg.h, but the main Keil target does not currently list FATFS or LIBJPEG groups.",
+        "Core/Src/freertos.c uses UI/LVGL/display/touch headers and init paths, but the main Keil target does not currently list UI or LVGL groups."
+      ],
+      "status": "open",
+      "repair": "Add the missing production groups and source entries incrementally, validating after each slice with KeilBridge model and UV4 rebuild.",
+      "validation": "Pending.",
+      "last_updated": "2026-05-27 09:58:24"
+    },
+    {
+      "id": "KPAI-006",
+      "title": "No explicit scatter file configured in main target",
+      "severity": "warning",
+      "category": "scatter",
+      "source": "keilbridge:inspect",
+      "evidence": [
+        "inspect.txt diagnostic: scatter_missing.",
+        "inspect.txt lists only a scatter candidate at MDK-ARM/ai_tempconroler/ai_tempconroler.sct."
+      ],
+      "status": "open",
+      "repair": "Decide whether to keep generated scatter behavior or bind the discovered .sct explicitly in the Keil target.",
+      "validation": "Pending.",
+      "last_updated": "2026-05-27 09:58:24"
+    },
+    {
+      "id": "KPAI-007",
+      "title": "KeilBridge cannot infer memory from target metadata",
+      "severity": "warning",
+      "category": "scatter",
+      "source": "keilbridge:inspect",
+      "evidence": [
+        "inspect.txt diagnostic: memory_unknown.",
+        "model.json target.memory is an empty array for ai_tempconroler."
+      ],
+      "status": "open",
+      "repair": "Confirm whether device database matching or explicit memory/scatter configuration should be added for deterministic linker generation analysis.",
+      "validation": "Pending.",
+      "last_updated": "2026-05-27 09:58:24"
+    },
+    {
+      "id": "KPAI-008",
+      "title": "Startup file may rely on ARMASM syntax",
+      "severity": "warning",
+      "category": "startup",
+      "source": "keilbridge:inspect",
+      "evidence": [
+        "inspect.txt diagnostic: startup_may_be_armasm for MDK-ARM/startup_stm32f407xx.s."
+      ],
+      "status": "open",
+      "repair": "Keep under review while validating ARM Compiler 6 compatibility and any backend conversion steps.",
+      "validation": "Pending.",
+      "last_updated": "2026-05-27 09:58:24"
+    }
+  ]
+}

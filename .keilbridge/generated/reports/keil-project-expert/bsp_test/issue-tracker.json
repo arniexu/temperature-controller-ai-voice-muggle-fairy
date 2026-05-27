@@ -1,0 +1,96 @@
+{
+  "project": "MDK-ARM/ai_tempconroler_bsp_test.uvprojx",
+  "target": "bsp_test",
+  "issues": [
+    {
+      "id": "KPBSP-001",
+      "title": "Deleted Adafruit LCD source still referenced by bsp_test project",
+      "severity": "error",
+      "category": "path",
+      "source": "keilbridge:model",
+      "evidence": [
+        "MDK-ARM/ai_tempconroler_bsp_test.uvprojx still contains ../Drivers/BSP/Adafruit_Shield/stm32_adafruit_lcd.c.",
+        "That source file was removed from the repository working tree."
+      ],
+      "status": "open",
+      "repair": "Replace the legacy display source entry with the current ili9341/fsmc_8080-based display layer or remove the legacy dependency from the test target.",
+      "validation": "Pending.",
+      "last_updated": "2026-05-27 09:58:24"
+    },
+    {
+      "id": "KPBSP-002",
+      "title": "Deleted lcd_io_fsmc source still referenced by bsp_test project",
+      "severity": "error",
+      "category": "path",
+      "source": "keilbridge:model",
+      "evidence": [
+        "MDK-ARM/ai_tempconroler_bsp_test.uvprojx still contains ../Drivers/BSP/Adafruit_Shield/lcd_io_fsmc.c.",
+        "That source file was removed from the repository working tree."
+      ],
+      "status": "open",
+      "repair": "Replace the legacy bus glue source entry with the current FSMC 8080 implementation or remove the legacy dependency from the test target.",
+      "validation": "Pending.",
+      "last_updated": "2026-05-27 09:58:24"
+    },
+    {
+      "id": "KPBSP-003",
+      "title": "BSP test entry still includes removed Adafruit LCD header",
+      "severity": "error",
+      "category": "path",
+      "source": "local-source-check",
+      "evidence": [
+        "Tests/BSP/main_bsp_test.c includes stm32_adafruit_lcd.h.",
+        "The legacy Adafruit header is no longer present in the repository."
+      ],
+      "status": "open",
+      "repair": "Port Tests/BSP/main_bsp_test.c to the current display abstraction or reintroduce a compatible wrapper layer.",
+      "validation": "Pending.",
+      "last_updated": "2026-05-27 09:58:24"
+    },
+    {
+      "id": "KPBSP-004",
+      "title": "No explicit scatter file configured in bsp_test target",
+      "severity": "warning",
+      "category": "scatter",
+      "source": "keilbridge:inspect",
+      "evidence": [
+        "inspect.txt diagnostic: scatter_missing.",
+        "inspect.txt lists only a scatter candidate at MDK-ARM/ai_tempconroler/ai_tempconroler.sct."
+      ],
+      "status": "open",
+      "repair": "Confirm whether bsp_test should bind an explicit scatter file instead of relying on generated behavior.",
+      "validation": "Pending.",
+      "last_updated": "2026-05-27 09:58:24"
+    },
+    {
+      "id": "KPBSP-005",
+      "title": "Scatter candidate memory does not fully match bsp_test target memory",
+      "severity": "warning",
+      "category": "scatter",
+      "source": "keilbridge:inspect",
+      "evidence": [
+        "inspect.txt diagnostic: scatter_candidate_memory_mismatch.",
+        "Target memory includes two RAM regions while the discovered scatter candidate reports only one RAM region."
+      ],
+      "status": "open",
+      "repair": "Review whether bsp_test should use its own scatter definition aligned with the target Cpu/device memory description.",
+      "validation": "Pending.",
+      "last_updated": "2026-05-27 09:58:24"
+    },
+    {
+      "id": "KPBSP-006",
+      "title": "bsp_test target metadata was inconsistent with the dedicated BSP test target",
+      "severity": "error",
+      "category": "target",
+      "source": "manual-repair",
+      "evidence": [
+        "The BSP test project previously carried stale target metadata and a mismatched uvoptx state from the main target.",
+        "The current uvprojx now exposes Target: bsp_test and Tests/BSP/main_bsp_test.c as the test entry source."
+      ],
+      "status": "resolved",
+      "repair": "Repaired uvprojx target metadata and removed the stale uvoptx so Keil can regenerate a clean session file.",
+      "validation": "Current inspect.txt reports Target: bsp_test and Sources: 298 with Tests/BSP/main_bsp_test.c present in the Application/User/Core group.",
+      "last_updated": "2026-05-27 09:58:24"
+    }
+  ]
+}
