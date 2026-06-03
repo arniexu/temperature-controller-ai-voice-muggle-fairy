@@ -65,14 +65,13 @@
       "category": "group",
       "source": "keilbridge:inspect",
       "evidence": [
-        "inspect.txt reports Sources: 33 and only four groups: Core, FreeRTOS, HAL Driver, Startup.",
-        "Core/Src/main.c includes fatfs.h and libjpeg.h, but the main Keil target does not currently list FATFS or LIBJPEG groups.",
-        "Core/Src/freertos.c uses UI/LVGL/display/touch headers and init paths, but the main Keil target does not currently list UI or LVGL groups."
+        "Current inspect.txt reports Sources: 213 with FATFS/LIBJPEG/UI/LVGL groups present.",
+        "Current model.json validation shows source_missing_count=0 and group_count=17."
       ],
-      "status": "open",
-      "repair": "Add the missing production groups and source entries incrementally, validating after each slice with KeilBridge model and UV4 rebuild.",
-      "validation": "Pending.",
-      "last_updated": "2026-05-27 09:58:24"
+      "status": "resolved",
+      "repair": "No further repair needed for this item in the current baseline.",
+      "validation": ".tools/keilbridge/.venv/Scripts/python.exe -m keiltool.cli inspect MDK-ARM/ai_tempconroler.uvprojx --target ai_tempconroler -v",
+      "last_updated": "2026-06-03 13:53:16"
     },
     {
       "id": "KPAI-006",
@@ -86,8 +85,8 @@
       ],
       "status": "open",
       "repair": "Decide whether to keep generated scatter behavior or bind the discovered .sct explicitly in the Keil target.",
-      "validation": "Pending.",
-      "last_updated": "2026-05-27 09:58:24"
+      "validation": ".keilbridge/generated/reports/keil-project-expert/ai_tempconroler/inspect.txt",
+      "last_updated": "2026-06-03 13:53:16"
     },
     {
       "id": "KPAI-007",
@@ -96,13 +95,13 @@
       "category": "scatter",
       "source": "keilbridge:inspect",
       "evidence": [
-        "inspect.txt diagnostic: memory_unknown.",
-        "model.json target.memory is an empty array for ai_tempconroler."
+        "Current inspect.txt reports explicit memory map entries for RAM/RAM2/FLASH.",
+        "Current model.json target.memory is populated."
       ],
-      "status": "open",
-      "repair": "Confirm whether device database matching or explicit memory/scatter configuration should be added for deterministic linker generation analysis.",
-      "validation": "Pending.",
-      "last_updated": "2026-05-27 09:58:24"
+      "status": "resolved",
+      "repair": "No immediate repair required for target memory inference.",
+      "validation": "python -m keiltool.cli model MDK-ARM/ai_tempconroler.uvprojx --target ai_tempconroler",
+      "last_updated": "2026-05-27 23:29:50"
     },
     {
       "id": "KPAI-008",
@@ -115,8 +114,36 @@
       ],
       "status": "open",
       "repair": "Keep under review while validating ARM Compiler 6 compatibility and any backend conversion steps.",
-      "validation": "Pending.",
-      "last_updated": "2026-05-27 09:58:24"
+      "validation": ".keilbridge/generated/reports/keil-project-expert/ai_tempconroler/inspect.txt",
+      "last_updated": "2026-06-03 13:53:16"
+    },
+    {
+      "id": "KPAI-009",
+      "title": "Missing header cfont.h during BSP ILI9341 build",
+      "severity": "error",
+      "category": "path",
+      "source": "uv4-build",
+      "evidence": [
+        "UV4 rebuild error: ../Drivers/BSP/Components/ili9341/ili9341_devboard_ref.c(2): error: 'cfont.h' file not found"
+      ],
+      "status": "open",
+      "repair": "Pending include path or header location alignment for cfont.h.",
+      "validation": "C:/Users/xuqianjx/AppData/Local/Keil_v5/UV4/UV4.exe -r MDK-ARM/ai_tempconroler.uvprojx -t ai_tempconroler -j0",
+      "last_updated": "2026-06-03 13:53:16"
+    },
+    {
+      "id": "KPAI-010",
+      "title": "Missing header lcd_log_conf.h during Utilities/Log build",
+      "severity": "error",
+      "category": "path",
+      "source": "uv4-build",
+      "evidence": [
+        "UV4 rebuild error: ../Utilities/Log/lcd_log.h(25): error: 'lcd_log_conf.h' file not found"
+      ],
+      "status": "open",
+      "repair": "Pending include path or config header provisioning for lcd_log_conf.h.",
+      "validation": "C:/Users/xuqianjx/AppData/Local/Keil_v5/UV4/UV4.exe -r MDK-ARM/ai_tempconroler.uvprojx -t ai_tempconroler -j0",
+      "last_updated": "2026-06-03 13:53:16"
     }
   ]
 }

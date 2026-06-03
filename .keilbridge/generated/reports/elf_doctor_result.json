@@ -1,0 +1,14 @@
+{
+  "schema": "keilbridge.elf_doctor.v1",
+  "elf": "C:\\Users\\xuqianjx\\OneDrive - Intel Corporation\\Desktop\\ai_tempcontroller\\ai_tempconroler\\.keilbridge\\build\\gcc-debug\\ai_tempconroler.elf",
+  "findings": [
+    {
+      "severity": "fatal",
+      "code": "ELF_NOT_FOUND",
+      "title": "未找到 ELF",
+      "message": "ELF 不存在：C:\\Users\\xuqianjx\\OneDrive - Intel Corporation\\Desktop\\ai_tempcontroller\\ai_tempconroler\\.keilbridge\\build\\gcc-debug\\ai_tempconroler.elf",
+      "evidence": "",
+      "suggestion": "先执行 build，再运行 doctor elf。"
+    }
+  ]
+}

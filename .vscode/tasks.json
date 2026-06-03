@@ -92,16 +92,25 @@
 		{
 			"label": "Keil Build main target",
 			"type": "shell",
-			"command": "C:\\Users\\xuqianjx\\AppData\\Local\\Keil_v5\\UV4\\UV4.exe",
+			"command": "powershell",
 			"args": [
-				"-b",
-				"MDK-ARM\\ai_tempconroler.uvprojx",
-				"-t",
-				"ai_tempconroler",
-				"-j0",
-				"-o",
-				"MDK-ARM\\build_cli.log"
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				".vscode\\keil-build.ps1",
+				"-Mode",
+				"build"
 			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared",
+				"clear": true
+			},
 			"isBackground": false
 		},
 		{
@@ -268,16 +277,21 @@
 		{
 			"label": "UV4 Rebuild now",
 			"type": "shell",
-			"command": "C:\\Users\\xuqianjx\\AppData\\Local\\Keil_v5\\UV4\\UV4.exe",
+			"command": "powershell",
 			"args": [
-				"-r",
-				"MDK-ARM\\ai_tempconroler.uvprojx",
-				"-t",
-				"ai_tempconroler",
-				"-j0",
-				"-o",
-				"MDK-ARM\\build_cli.log"
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				".vscode\\keil-build.ps1",
+				"-Mode",
+				"rebuild"
 			],
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared",
+				"clear": true
+			},
 			"isBackground": false
 		}
 	]

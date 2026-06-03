@@ -1,0 +1,27 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 20,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "armclang-debug",
+      "displayName": "ArmClang Debug",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/armclang-debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/cmake/armclang-toolchain.cmake",
+        "ARMCLANG_ROOT": "C:/Users/xuqianjx/AppData/Local/Keil_v5/ARM/ARMCLANG"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "armclang-debug",
+      "configurePreset": "armclang-debug"
+    }
+  ]
+}

@@ -58,9 +58,6 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 
-#define LCD_BL_Pin GPIO_PIN_10
-#define LCD_BL_GPIO_Port GPIOF
-
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

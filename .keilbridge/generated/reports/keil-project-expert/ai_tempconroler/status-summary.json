@@ -1,10 +1,10 @@
 {
   "project": "MDK-ARM/ai_tempconroler.uvprojx",
   "target": "ai_tempconroler",
-  "last_keilbridge_step": "model",
+  "last_keilbridge_step": "uv4-build",
   "open_issue_count": 4,
-  "resolved_issue_count": 4,
+  "resolved_issue_count": 6,
   "blocked_issue_count": 0,
   "current_status": "repairing",
-  "last_updated": "2026-05-27 09:58:24"
+  "last_updated": "2026-06-03 13:53:16"
 }

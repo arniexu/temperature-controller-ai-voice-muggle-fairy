@@ -26,13 +26,27 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
+#include "stm32f4xx_hal.h"
 
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
 
 /* USER CODE BEGIN Private defines */
+
+#define LCD_BL_Pin GPIO_PIN_10
+#define LCD_BL_GPIO_Port GPIOF
+
+#define TOUCH_CS_Pin GPIO_PIN_0
+#define TOUCH_CS_GPIO_Port GPIOB
+#define TOUCH_MOSI_Pin GPIO_PIN_1
+#define TOUCH_MOSI_GPIO_Port GPIOB
+#define TOUCH_MISO_Pin GPIO_PIN_2
+#define TOUCH_MISO_GPIO_Port GPIOB
+#define TOUCH_SCK_Pin GPIO_PIN_5
+#define TOUCH_SCK_GPIO_Port GPIOA
+#define TC_PEN_Pin GPIO_PIN_11
+#define TC_PEN_GPIO_Port GPIOF
 
 /* USER CODE END Private defines */
 

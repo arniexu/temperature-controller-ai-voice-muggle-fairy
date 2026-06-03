@@ -1,0 +1,64 @@
+{
+  "schema": "keilbridge.backend_recommendation.v1",
+  "target": "ai_tempconroler",
+  "recommended": "armclang",
+  "options": [
+    {
+      "backend": "armclang",
+      "status": "candidate_tool_missing",
+      "score": 65,
+      "title": "适合作为高兼容迁移路线，但当前仍处于后端实现阶段。",
+      "reasons": [
+        "ArmClang 后端适合承接 Keil/AC6 生态中的 scatter、ARMASM startup 和部分 Keil 库依赖。",
+        "工程存在 scatter 信息，适合 ArmLink 路线复用或生成等价 scatter。",
+        "检测到 ARMASM 风格 startup，ArmClang 路线更接近原 Keil 工程语义。",
+        "RTOS 工程可优先保留 Keil/ArmClang portable 层，减少 GCC port 迁移风险。"
+      ],
+      "blockers": [
+        "本机 ArmClang 工具不完整，缺少：armclang, armlink, armasm, fromelf。"
+      ],
+      "next_step": "先补齐 ArmClang 工具链并运行 doctor backend；后续使用 configure --backend armclang 生成 ArmClang 工作区。"
+    },
+    {
+      "backend": "debug-only",
+      "status": "fallback",
+      "score": 35,
+      "title": "适合作为构建受阻时的调试保底路线。",
+      "reasons": [
+        "Debug-only 不负责重建固件，只负责加载 ELF/符号、连接 OpenOCD 或 GDB Server。",
+        "当工程存在闭源库、复杂链接脚本或暂时无法离开 Keil 编译时，它可以作为保底调试路线。"
+      ],
+      "blockers": [],
+      "next_step": "使用 Keil 或原有链路生成 ELF，再让 KeilBridge 生成调试配置并运行 Flash/Debug Doctor。"
+    },
+    {
+      "backend": "gcc",
+      "status": "blocked",
+      "score": 30,
+      "title": "适合作为开放构建和调试主路线。",
+      "reasons": [
+        "GCC 后端已经具备 CMake、GNU ld、GCC startup、OpenOCD/VS Code 生成链路。",
+        "已能获得目标芯片内存布局，可生成 GNU ld 链接脚本。",
+        "CubeMX 工程可复用 Core/Drivers/Middlewares，不需要改动 .ioc。",
+        "Keil ARMASM startup 将由生成层替换为 GCC startup，原工程不动。",
+        "RTOS 工程需要确认 GCC portable 层和异常入口映射，当前只视为需验证项。"
+      ],
+      "blockers": [
+        "未检测到 Arm GNU Toolchain；需要安装或通过 --arm-gcc-root 指定。"
+      ],
+      "next_step": "运行 configure --backend gcc，再 build、doctor elf、flash/debug。"
+    },
+    {
+      "backend": "keil-cli",
+      "status": "fallback",
+      "score": 30,
+      "title": "适合作为无法迁出 Keil 时的兼容兜底。",
+      "reasons": [
+        "Keil CLI 后端保留原 MDK 构建语义，适合闭源库、复杂 scatter 或厂商包强绑定项目。",
+        "它不是跨平台开放构建路线，但可以作为真实交付项目的兼容兜底。"
+      ],
+      "blockers": [],
+      "next_step": "保留 Keil 编译，KeilBridge 负责诊断、调试配置和后续自动化。"
+    }
+  ]
+}

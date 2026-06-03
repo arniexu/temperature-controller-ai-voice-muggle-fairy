@@ -1,0 +1,23 @@
+﻿{
+    "file":  "MDK-ARM\\ai_tempconroler.uvprojx",
+    "utf8Bom":  true,
+    "targetCount":  1,
+    "duplicateTargets":  {
+
+                         },
+    "duplicateGroups":  {
+
+                        },
+    "totalFileRefs":  200,
+    "missingFileRefs":  [
+
+                        ],
+    "missingFileRefCount":  0,
+    "tooLongPathRefs":  [
+
+                        ],
+    "tooLongPathRefCount":  0,
+    "missingRequiredNodes":  [
+
+                             ]
+}

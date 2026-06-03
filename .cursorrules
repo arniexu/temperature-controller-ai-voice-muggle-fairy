@@ -5,8 +5,8 @@
 This file contains project context and decisions. AI assistants should read this file for context. MCP tools are an optional enhancement for richer interaction when connected.
 
 ## Project Context
-- **Total Decisions:** 8
-- **Known Topics:** why, fsmc, lcd, hardware, ili9341, 8080, driver, sram, clock, rcc, backlight, gpio, keil, project, isolation
+- **Total Decisions:** 34
+- **Known Topics:** why, keil, workflow, build, fsmc, lcd, ai_tempconroler, hardware, gpio, agent, open, bsp, uvprojx, sram, ili9341
 
 ## Current State
 **Repository:** ai_tempconroler
@@ -14,35 +14,42 @@ This file contains project context and decisions. AI assistants should read this
 **Branch:** master
 
 **Recent Commits:**
-- `9930305 initial commit`
+- `70e8906 freeRTOS from AC5 to AC6`
+- `d205d9a push ai management docs`
+- `19057fd update project files`
+- `c7ae127 those should never be changed`
+- `3786cd2 ignore`
 
 **Working Tree:**
-- D Drivers/BSP/Adafruit_Shield/lcd_io_fsmc.c
-- D Drivers/BSP/Adafruit_Shield/stm32_adafruit_lcd.c
-- D Drivers/BSP/Adafruit_Shield/stm32_adafruit_lcd.h
-- D Drivers/BSP/Adafruit_Shield/stm32_adafruit_sd.c
-- D Drivers/BSP/Adafruit_Shield/stm32_adafruit_sd.h
-- M Drivers/BSP/Components/ili9341/ili9341.c
-- M Drivers/BSP/Components/ili9341/ili9341.h
-- D Drivers/BSP/Components/ili9341/ili9341_official.c
-- D Drivers/BSP/Components/ili9341/ili9341_official.h
-- M MDK-ARM/ai_tempconroler.uvprojx
-- M MDK-ARM/ai_tempconroler_bsp_test.uvprojx
-- ?? Drivers/BSP/Components/ili9341/fsmc_8080.c
-- ?? Drivers/BSP/Components/ili9341/fsmc_8080.h
-- ?? Drivers/BSP/Components/ili9341/ili9341_devboard_ref.c
-- ?? Drivers/BSP/Components/ili9341/ili9341_devboard_ref.h
+- M .cursorrules
+- M .github/agents/keil-project-expert.agent.md
+- M .github/copilot-instructions.md
+- M .keilbridge/generated/reports/keil-project-expert/ai_tempconroler/activity-log.md
+- M .keilbridge/generated/reports/keil-project-expert/ai_tempconroler/inspect.txt
+- M .keilbridge/generated/reports/keil-project-expert/ai_tempconroler/issue-tracker.json
+- M .keilbridge/generated/reports/keil-project-expert/ai_tempconroler/model.json
+- M .keilbridge/generated/reports/keil-project-expert/ai_tempconroler/status-summary.json
+- M .tools/keilbridge
+- M .vscode/tasks.json
+- M AGENTS.md
+- M CLAUDE.md
+- M Core/Inc/FreeRTOSConfig.h
+- M Core/Inc/fsmc.h
+- M Core/Inc/gpio.h
 
 ## Working Memory Snapshot
 **Mode:** degraded-fallback
-**Generated At:** 2026-05-26T11:46:09.084Z
-**Startup Summary:** mode=degraded-fallback | decisions=8 | branch=master | health=MCP server disconnected. MCP probe timed out after 15000ms. [GitCommitDetector] Using cached audit (0 uncovered, 3min old)
-[MCP] Background init completed in 5ms | fallback-files=12
-**Decision Count:** 8
+**Generated At:** 2026-06-03T08:30:48.313Z
+**Startup Summary:** mode=degraded-fallback | decisions=33 | lastTask=按分类继续收敛：bug_fix 跟进 startup ARMASM 兼容风险；architecture_decision 收敛 scatter 显式策略；implementation_approach 固化 CLI 产物断言（axf/map/log）；dependency_choice 完成 armclang 与 GNU Arm toolchain 就绪。 | next=按分类继续收敛：bug_fix 跟进 startup ARMASM 兼容风险；architecture_decision 收敛 scatter 显式策略；implementation_approach 固化 CLI 产物断言（axf/map/log）；dependency_choice 完成 armclang 与 GNU Arm toolchain 就绪。 | branch=master | health=MCP server disconnected. MCP probe timed out after 15000ms. [GitCommitDetector] Startup audit: 5 uncovered commits in last 7 days (auto-drafted 0)
+[MCP] Background init completed in 2ms | fallback-files=12
+**Decision Count:** 33
 **Fallback Chain:** AGENTS.md, CLAUDE.md, GEMINI.md, .cursorrules, .github/copilot-instructions.md, .continuity/INSTRUCTIONS.md, .continuity/SESSION_NOTES.md, .continuity/mcp-health.json, .continuity/unfinished-task.json, .continuity/working-memory.json, SESSION_HANDOFF.md, .continuity/decisions.json
 
 ## Resume Snapshot
-**Relevant Files:** Drivers\BSP\Components\ili9341\ili9341.c, Drivers\BSP\Components\ili9341\fsmc_8080.c, Core\Src\main.c, Core\Src\stm32f4xx_hal_timebase_tim.c, Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal.c, Core\Src\fsmc.c
+**Last Task:** 按分类继续收敛：bug_fix 跟进 startup ARMASM 兼容风险；architecture_decision 收敛 scatter 显式策略；implementation_approach 固化 CLI 产物断言（axf/map/log）；dependency_choice 完成 armclang 与 GNU Arm toolchain 就绪。
+**Last Completed Milestone:** 按分类继续收敛：bug_fix 跟进 startup ARMASM 兼容风险；architecture_decision 收敛 scatter 显式策略；implementation_approach 固化 CLI 产物断言（axf/map/log）；dependency_choice 完成 armclang 与 GNU Arm toolchain 就绪。
+**Next Expected Step:** 按分类继续收敛：bug_fix 跟进 startup ARMASM 兼容风险；architecture_decision 收敛 scatter 显式策略；implementation_approach 固化 CLI 产物断言（axf/map/log）；dependency_choice 完成 armclang 与 GNU Arm toolchain 就绪。
+**Relevant Files:** .github\agents\keil-build-expert.agent.md, .vscode\mcp.json, Drivers\BSP\Adafruit_Shield\stm32_adafruit_lcd.h, Drivers\BSP\Adafruit_Shield\stm32_adafruit_lcd.c, .continuity\SESSION_NOTES.md, Tests\BSP\SOP_BSP_LCD_SELF_TEST.md
 
 ## Workflow
 
@@ -59,6 +66,14 @@ Use the repo-local artifacts directly — these are always available:
 **Decision logging path:** use the Continuity CLI first: `continuity log "question" "answer"`. Do not treat `.continuity/SESSION_NOTES.md` or manual `.continuity/decisions.json` edits as the logging sink.
 **Search-before-log still applies.** Check `.continuity/decisions.json` before recording a new rationale.
 
+
+## Decision Freshness
+**0 stale decisions** · 1 need review · Oldest unreviewed: 2026-05-26
+
+Stale decisions requiring attention:
+1. **1779796065577-7mvo41** (score 35) — "Why: initial commit?"
+
+When referencing these decisions, note their staleness. Verify they still reflect current project state before recommending based on them.
 
 ## Engineering Guardrails
 
@@ -157,25 +172,25 @@ Describe how this repository prefers to work with AI assistants.
 ---
 
 ## Recent Decisions
-1. **decision-86529a94** (5/26/2026) [why]
-   - Q: Why align LCD FSMC address/timing to official implementation?
-   - A: To make LCD bus transactions electrically match the proven official waveforms...
+1. **decision-66c48add** (6/3/2026) [why, keil]
+   - Q: Why delete the obsolete stm32_adafruit_lcd.c file?
+   - A: The Adafruit Shield LCD implementation is legacy and not part of the current ...
 
-2. **decision-d4ff424f** (5/26/2026) [why, keil]
-   - Q: Why split BSP test into a separate Keil project file?
-   - A: To guarantee business project integrity: keep ai_tempconroler.uvprojx with on...
+2. **decision-111a9fb0** (6/3/2026) [how, skill]
+   - Q: How should the six-skill split evolve now?
+   - A: User clarified: items 1-3 should be made more abstract/general; item 4 is cor...
 
-3. **decision-d942bfae** (5/25/2026) [why, lcd]
-   - Q: Why implement ili9341 SetCursor/WritePixel/ReadPixel/window/line helpers?
-   - A: To ensure every LCD draw/read path in BSP function pointers resolves to ili93...
+3. **decision-4ace19be** (6/3/2026) [why, agent]
+   - Q: Why switch keil-build-expert to generic-only skills mode?
+   - A: Updated agent instructions to remove repository-specific guardrails and keep ...
 
-4. **decision-0991ddfd** (5/25/2026) [why, lcd]
-   - Q: Why wire ILI9341 draw ops to driver callbacks?
-   - A: To guarantee LCD 8080 accesses from BSP draw APIs are routed through ili9341_...
+4. **decision-d5a15b80** (6/3/2026) [why, skill]
+   - Q: Why create six skills with generic vs project-constraint split?
+   - A: Implemented six skill docs under .github/skills and separated reusable workfl...
 
-5. **decision-f728a82c** (5/25/2026) [why, lcd]
-   - Q: Why use PF10 for LCD backlight control?
-   - A: Hardware backlight is wired to dedicated PF10, so MX_GPIO_Init now configures...
+5. **decision-17797960** (5/26/2026) [auto-draft, needs-review]
+   - Q: Why: initial commit?
+   - A: (Auto-drafted from commit 9930305 on 2026-05-26.) Please review and expand wi...
 
 ---
 
@@ -195,6 +210,6 @@ Describe how this repository prefers to work with AI assistants.
 
 ---
 
-*Auto-generated by Continuity v2.3+ | Updated: 2026-05-26*
+*Auto-generated by Continuity v2.3+ | Updated: 2026-06-03*
 
 <!-- END CONTINUITY AUTO-GENERATED CONTENT -->

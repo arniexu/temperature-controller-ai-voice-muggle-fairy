@@ -1,0 +1,3 @@
+﻿ELF Doctor report: C:\Users\xuqianjx\OneDrive - Intel Corporation\Desktop\ai_tempcontroller\ai_tempconroler\.keilbridge\generated\reports\elf_doctor_report.md
+[fatal] ELF_NOT_FOUND: µ£¬µë╛σê░ ELF
+  suggestion: σàêµëºΦíî build∩╝îσåìΦ┐ÉΦíî doctor elfπÇé

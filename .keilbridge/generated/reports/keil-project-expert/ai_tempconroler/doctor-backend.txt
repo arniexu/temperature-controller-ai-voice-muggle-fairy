@@ -1,0 +1,8 @@
+﻿Backend Doctor report: C:\Users\xuqianjx\OneDrive - Intel Corporation\Desktop\ai_tempcontroller\ai_tempconroler\.keilbridge\generated\reports\backend_recommendation.md
+Recommended backend: armclang
+  [candidate_tool_missing] armclang: 适合作为高兼容迁移路线，但当前仍处于后端实现阶段。
+    blockers: 本机 ArmClang 工具不完整，缺少：armclang, armlink, armasm, fromelf。
+  [fallback] debug-only: 适合作为构建受阻时的调试保底路线。
+  [blocked] gcc: 适合作为开放构建和调试主路线。
+    blockers: 未检测到 Arm GNU Toolchain；需要安装或通过 --arm-gcc-root 指定。
+  [fallback] keil-cli: 适合作为无法迁出 Keil 时的兼容兜底。

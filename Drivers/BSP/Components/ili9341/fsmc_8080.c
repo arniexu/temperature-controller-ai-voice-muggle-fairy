@@ -5,7 +5,6 @@
 
 #include <stdint.h>
 
-#include "ili9341.h"
 #include "fsmc_8080.h"
 
 /* HAL delay is provided by STM32 HAL runtime. */

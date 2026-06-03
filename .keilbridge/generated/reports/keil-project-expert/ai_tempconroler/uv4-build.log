@@ -1,0 +1,15 @@
+*** Using Compiler 'V6.24', folder: 'C:\Users\xuqianjx\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin'
+Build target 'ai_tempconroler'
+../Drivers/BSP/Components/ili9341/ili9341_devboard_ref.c(2): error: 'cfont.h' file not found
+    2 | #include "cfont.h"
+      |          ^~~~~~~~~
+1 error generated.
+compiling ili9341_devboard_ref.c...
+../Utilities/Log/lcd_log.c(32): warning: In file included from...../Utilities/Log\lcd_log.h(25): error: 'lcd_log_conf.h' file not found
+   25 | #include "lcd_log_conf.h"
+      |          ^~~~~~~~~~~~~~~~
+1 error generated.
+compiling lcd_log.c...
+"ai_tempconroler\ai_tempconroler.axf" - 2 Error(s), 0 Warning(s).
+Target not created.
+Build Time Elapsed:  00:00:33
