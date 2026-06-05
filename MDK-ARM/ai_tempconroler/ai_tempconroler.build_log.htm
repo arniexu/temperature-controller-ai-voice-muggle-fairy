@@ -1,0 +1,75 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.43.1.0
+Copyright (C) 2025 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: qj xuqianjx
+xcla
+User-based license: Keil MDK Community (non-commercial free of charge)
+Valid until: Jun 1 2033. Cached until: Jun 11 2026
+ 
+Tool Versions:
+Toolchain:       Keil MDK Community (non-commercial free of charge  Version: 5.43.0.0
+Toolchain Path:  C:\Users\xuqianjx\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.24
+Assembler:       Armasm.exe V6.24
+Linker/Locator:  ArmLink.exe V6.24
+Library Manager: ArmAr.exe V6.24
+Hex Converter:   FromElf.exe V6.24
+CPU DLL:         SARMCM3.DLL V5.43.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.3.1.0
+Dialog DLL:      TCM.DLL V1.56.6.0
+ 
+<h2>Project:</h2>
+C:\Users\xuqianjx\OneDrive - Intel Corporation\Desktop\ai_tempcontroller\ai_tempconroler\MDK-ARM\ai_tempconroler.uvprojx
+Project File Date:  06/05/2026
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.24', folder: 'C:\Users\xuqianjx\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin'
+Build target 'ai_tempconroler'
+../Utilities/Log/lcd_log.c(32): warning: In file included from...
+../Utilities/Log\lcd_log.h(25): error: 'lcd_log_conf.h' file not found
+   25 | #include "lcd_log_conf.h"
+      |          ^~~~~~~~~~~~~~~~
+1 error generated.
+compiling lcd_log.c...
+../Core/Src/fsmc.c(76): error: call to undeclared function 'Error_Handler'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   76 |     Error_Handler( );
+      |     ^
+../Core/Src/fsmc.c(117): error: call to undeclared function 'Error_Handler'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  117 |     Error_Handler( );
+      |     ^
+2 errors generated.
+compiling fsmc.c...
+"ai_tempconroler\ai_tempconroler.axf" - 3 Error(s), 0 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                https://www.keil.com/pack/ARM.CMSIS.6.2.0.pack
+                ARM::CMSIS@6.2.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 6.1.1
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.STM32F4xx_DFP.2.17.1.pack
+                Keil::STM32F4xx_DFP@2.17.1
+                STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/_ai_tempconroler
+  C:/Users/xuqianjx/AppData/Local/Arm/Packs/ARM/CMSIS/6.2.0/CMSIS/Core/Include
+  C:/Users/xuqianjx/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE@6.1.1
+      Include file:  CMSIS/Core/Include/tz_context.h
+Target not created.
+Build Time Elapsed:  00:00:08
+</pre>
+</body>
+</html>

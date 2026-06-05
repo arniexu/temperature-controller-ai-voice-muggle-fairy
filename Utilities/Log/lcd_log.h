@@ -22,7 +22,6 @@
 
 /* Includes ------------------------------------------------------------------*/
 
-#include "lcd_log_conf.h"
 
 /** @addtogroup Utilities
   * @{

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="project_projx.xsd">
 
   <SchemaVersion>2.1</SchemaVersion>
@@ -37,7 +37,7 @@
           <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
-          <IncludePath></IncludePath>
+          <IncludePath>;../Middlewares/Third_Party/lvgl/src;../Middlewares/Third_Party/lvgl</IncludePath>
           <LibPath></LibPath>
           <RegisterFilePath></RegisterFilePath>
           <DBRegisterFilePath></DBRegisterFilePath>
@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F407xx,__GCC_POSIX</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../FATFS/Target;../FATFS/App;../LIBJPEG/App;../LIBJPEG/Target;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/BSP/Components/ili9341;../Drivers/BSP/Components/xpt2046;../Drivers/BSP/Components/Common;../UI/Core/Inc;../UI/LVGL;../Utilities/Fonts;../Utilities/Log;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Middlewares/Third_Party/FatFs/src;../Middlewares/Third_Party/LibJPEG/include;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../Middlewares/Third_Party/lvgl;../Middlewares/Third_Party/lvgl/src</IncludePath>
+              <IncludePath>../Core/Inc;../FATFS/Target;../FATFS/App;../LIBJPEG/App;../LIBJPEG/Target;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/BSP/Components/ili9341;../Drivers/BSP/Components/xpt2046;../Drivers/BSP/Components/Common;../UI/Core/Inc;../UI/LVGL;../Utilities/Fonts;../Utilities/Log;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Middlewares/Third_Party/FatFs/src;../Middlewares/Third_Party/LibJPEG/include;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../Middlewares/Third_Party/lvgl/src;../Middlewares/Third_Party/lvgl</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -358,7 +358,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../FATFS/Target;../FATFS/App;../LIBJPEG/App;../LIBJPEG/Target;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/BSP/Components/ili9341;../Drivers/BSP/Components/xpt2046;../Drivers/BSP/Components/Common;../UI/Core/Inc;../UI/LVGL;../Utilities/Fonts;../Utilities/Log;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Middlewares/Third_Party/FatFs/src;../Middlewares/Third_Party/LibJPEG/include;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../Middlewares/Third_Party/lvgl;../Middlewares/Third_Party/lvgl/src</IncludePath>
+              <IncludePath>../Core/Inc;../FATFS/Target;../FATFS/App;../LIBJPEG/App;../LIBJPEG/Target;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/BSP/Components/ili9341;../Drivers/BSP/Components/xpt2046;../Drivers/BSP/Components/Common;../UI/Core/Inc;../UI/LVGL;../Utilities/Fonts;../Utilities/Log;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Middlewares/Third_Party/FatFs/src;../Middlewares/Third_Party/LibJPEG/include;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../Middlewares/Third_Party/lvgl/src;../Middlewares/Third_Party/lvgl</IncludePath>
             </VariousControls>
           </Aads>
           <LDads>
@@ -919,11 +919,6 @@
               <FileType>1</FileType>
               <FilePath>../Drivers/BSP/Components/ili9341/fsmc_8080.c</FilePath>
             </File>
-            <File>
-              <FileName>ili9341_devboard_ref.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../Drivers/BSP/Components/ili9341/ili9341_devboard_ref.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -1022,7 +1017,7 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>Middlewares/LVGL</GroupName>
+          <GroupName>Middlewares/LVGL/core</GroupName>
           <Files>
             <File>
               <FileName>lv_disp.c</FileName>
@@ -1099,6 +1094,11 @@
               <FileType>1</FileType>
               <FilePath>../Middlewares/Third_Party/lvgl/src/core/lv_theme.c</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/draw</GroupName>
+          <Files>
             <File>
               <FileName>lv_draw.c</FileName>
               <FileType>1</FileType>
@@ -1164,6 +1164,11 @@
               <FileType>1</FileType>
               <FilePath>../Middlewares/Third_Party/lvgl/src/draw/lv_img_decoder.c</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/draw/sw</GroupName>
+          <Files>
             <File>
               <FileName>lv_draw_sw.c</FileName>
               <FileType>1</FileType>
@@ -1224,45 +1229,485 @@
               <FileType>1</FileType>
               <FilePath>../Middlewares/Third_Party/lvgl/src/draw/sw/lv_draw_sw_transform.c</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_extra.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/lv_extra.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/layouts/flex</GroupName>
+          <Files>
             <File>
               <FileName>lv_flex.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Middlewares/Third_Party/lvgl/src/extra/layouts/flex/lv_flex.c</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/layouts/grid</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_grid.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/layouts/grid/lv_grid.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/libs/bmp</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_bmp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/libs/bmp/lv_bmp.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/libs/ffmpeg</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_ffmpeg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/libs/ffmpeg/lv_ffmpeg.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/libs/freetype</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_freetype.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/libs/freetype/lv_freetype.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/libs/fsdrv</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_fs_fatfs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/libs/fsdrv/lv_fs_fatfs.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_fs_littlefs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/libs/fsdrv/lv_fs_littlefs.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_fs_posix.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/libs/fsdrv/lv_fs_posix.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_fs_stdio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/libs/fsdrv/lv_fs_stdio.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_fs_win32.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/libs/fsdrv/lv_fs_win32.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/libs/gif</GroupName>
+          <Files>
+            <File>
+              <FileName>gifdec.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/libs/gif/gifdec.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_gif.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/libs/gif/lv_gif.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/libs/png</GroupName>
+          <Files>
+            <File>
+              <FileName>lodepng.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/libs/png/lodepng.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_png.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/libs/png/lv_png.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/libs/qrcode</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_qrcode.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/libs/qrcode/lv_qrcode.c</FilePath>
+            </File>
+            <File>
+              <FileName>qrcodegen.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/libs/qrcode/qrcodegen.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/libs/rlottie</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_rlottie.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/libs/rlottie/lv_rlottie.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/libs/sjpg</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_sjpg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/libs/sjpg/lv_sjpg.c</FilePath>
+            </File>
+            <File>
+              <FileName>tjpgd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/libs/sjpg/tjpgd.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/libs/tiny_ttf</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_tiny_ttf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/libs/tiny_ttf/lv_tiny_ttf.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/others/fragment</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_fragment.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/others/fragment/lv_fragment.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_fragment_manager.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/others/fragment/lv_fragment_manager.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/others/gridnav</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_gridnav.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/others/gridnav/lv_gridnav.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/others/ime</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_ime_pinyin.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/others/ime/lv_ime_pinyin.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/others/imgfont</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_imgfont.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/others/imgfont/lv_imgfont.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/others/monkey</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_monkey.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/others/monkey/lv_monkey.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/others/msg</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_msg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/others/msg/lv_msg.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/others/snapshot</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_snapshot.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/others/snapshot/lv_snapshot.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/themes/basic</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_theme_basic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/themes/basic/lv_theme_basic.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/themes/default</GroupName>
+          <Files>
             <File>
               <FileName>lv_theme_default.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Middlewares/Third_Party/lvgl/src/extra/themes/default/lv_theme_default.c</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/themes/mono</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_theme_mono.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/themes/mono/lv_theme_mono.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/widgets/animimg</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_animimg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/widgets/animimg/lv_animimg.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/widgets/calendar</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_calendar.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/widgets/calendar/lv_calendar.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_calendar_header_arrow.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/widgets/calendar/lv_calendar_header_arrow.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_calendar_header_dropdown.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/widgets/calendar/lv_calendar_header_dropdown.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/widgets/chart</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_chart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/widgets/chart/lv_chart.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/widgets/colorwheel</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_colorwheel.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/widgets/imgbtn</GroupName>
+          <Files>
             <File>
               <FileName>lv_imgbtn.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Middlewares/Third_Party/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/widgets/keyboard</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_keyboard.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/widgets/keyboard/lv_keyboard.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/widgets/led</GroupName>
+          <Files>
             <File>
               <FileName>lv_led.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Middlewares/Third_Party/lvgl/src/extra/widgets/led/lv_led.c</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/widgets/list</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_list.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/widgets/list/lv_list.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/widgets/menu</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_menu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/widgets/menu/lv_menu.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/widgets/meter</GroupName>
+          <Files>
             <File>
               <FileName>lv_meter.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Middlewares/Third_Party/lvgl/src/extra/widgets/meter/lv_meter.c</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/widgets/msgbox</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_msgbox.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/widgets/msgbox/lv_msgbox.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/widgets/span</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_span.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/widgets/span/lv_span.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/widgets/spinbox</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_spinbox.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/widgets/spinbox/lv_spinbox.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/widgets/spinner</GroupName>
+          <Files>
             <File>
               <FileName>lv_spinner.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Middlewares/Third_Party/lvgl/src/extra/widgets/spinner/lv_spinner.c</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/widgets/tabview</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_tabview.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/widgets/tabview/lv_tabview.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/widgets/tileview</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_tileview.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/widgets/tileview/lv_tileview.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/extra/widgets/win</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_win.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/extra/widgets/win/lv_win.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/font</GroupName>
+          <Files>
             <File>
               <FileName>lv_font.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font.c</FilePath>
             </File>
             <File>
+              <FileName>lv_font_dejavu_16_persian_hebrew.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font_dejavu_16_persian_hebrew.c</FilePath>
+            </File>
+            <File>
               <FileName>lv_font_fmt_txt.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font_fmt_txt.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_font_loader.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font_loader.c</FilePath>
             </File>
             <File>
               <FileName>lv_font_montserrat_10.c</FileName>
@@ -1275,6 +1720,11 @@
               <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_12.c</FilePath>
             </File>
             <File>
+              <FileName>lv_font_montserrat_12_subpx.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_12_subpx.c</FilePath>
+            </File>
+            <File>
               <FileName>lv_font_montserrat_14.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_14.c</FilePath>
@@ -1285,9 +1735,19 @@
               <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_16.c</FilePath>
             </File>
             <File>
+              <FileName>lv_font_montserrat_18.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_18.c</FilePath>
+            </File>
+            <File>
               <FileName>lv_font_montserrat_20.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_20.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_font_montserrat_22.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_22.c</FilePath>
             </File>
             <File>
               <FileName>lv_font_montserrat_24.c</FileName>
@@ -1295,9 +1755,24 @@
               <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_24.c</FilePath>
             </File>
             <File>
+              <FileName>lv_font_montserrat_26.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_26.c</FilePath>
+            </File>
+            <File>
               <FileName>lv_font_montserrat_28.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_28.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_font_montserrat_28_compressed.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_28_compressed.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_font_montserrat_30.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_30.c</FilePath>
             </File>
             <File>
               <FileName>lv_font_montserrat_32.c</FileName>
@@ -1305,14 +1780,39 @@
               <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_32.c</FilePath>
             </File>
             <File>
+              <FileName>lv_font_montserrat_34.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_34.c</FilePath>
+            </File>
+            <File>
               <FileName>lv_font_montserrat_36.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_36.c</FilePath>
             </File>
             <File>
+              <FileName>lv_font_montserrat_38.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_38.c</FilePath>
+            </File>
+            <File>
               <FileName>lv_font_montserrat_40.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_40.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_font_montserrat_42.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_42.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_font_montserrat_44.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_44.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_font_montserrat_46.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_46.c</FilePath>
             </File>
             <File>
               <FileName>lv_font_montserrat_48.c</FileName>
@@ -1324,6 +1824,26 @@
               <FileType>1</FileType>
               <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font_montserrat_8.c</FilePath>
             </File>
+            <File>
+              <FileName>lv_font_simsun_16_cjk.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font_simsun_16_cjk.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_font_unscii_16.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font_unscii_16.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_font_unscii_8.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Middlewares/Third_Party/lvgl/src/font/lv_font_unscii_8.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/hal</GroupName>
+          <Files>
             <File>
               <FileName>lv_hal_disp.c</FileName>
               <FileType>1</FileType>
@@ -1339,6 +1859,11 @@
               <FileType>1</FileType>
               <FilePath>../Middlewares/Third_Party/lvgl/src/hal/lv_hal_tick.c</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/misc</GroupName>
+          <Files>
             <File>
               <FileName>lv_anim.c</FileName>
               <FileType>1</FileType>
@@ -1449,6 +1974,11 @@
               <FileType>1</FileType>
               <FilePath>../Middlewares/Third_Party/lvgl/src/misc/lv_utils.c</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/widgets</GroupName>
+          <Files>
             <File>
               <FileName>lv_arc.c</FileName>
               <FileType>1</FileType>
@@ -1539,15 +2069,18 @@
   </Targets>
 
   <RTE>
+    <apis/>
     <components>
       <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="6.1.1" condition="ARMv6_7_8-M Device" ymlID="CMSIS:CORE">
-        <package name="CMSIS" schemaVersion="1.7.40" url="https://www.keil.com/pack/" vendor="ARM" version="6.2.0" />
+        <package name="CMSIS" schemaVersion="1.7.40" url="https://www.keil.com/pack/" vendor="ARM" version="6.2.0"/>
         <targetInfos>
-          <targetInfo name="ai_tempconroler" />
+          <targetInfo name="ai_tempconroler"/>
         </targetInfos>
       </component>
     </components>
+    <files/>
   </RTE>
+
   <LayerInfo>
     <Layers>
       <Layer>
@@ -1556,4 +2089,5 @@
       </Layer>
     </Layers>
   </LayerInfo>
+
 </Project>
