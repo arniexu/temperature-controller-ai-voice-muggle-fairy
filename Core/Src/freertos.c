@@ -140,18 +140,18 @@ void StartDefaultTask(void const * argument)
   g_boot_stage = 0x21U;
 
   if (display_drv_init() != 0) {
-    // Error_Handler();
+    Error_Handler();
   }
   g_boot_stage = 0x22U;
 
   if (touch_drv_init() != 0) {
-    // Error_Handler();
+    Error_Handler();
   }
   g_boot_stage = 0x23U;
 
   g_ui = tianji_ui_init();
   if (g_ui == NULL) {
-    // Error_Handler();
+    Error_Handler();
   }
   g_boot_stage = 0x24U;
 
