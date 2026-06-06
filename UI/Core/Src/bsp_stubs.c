@@ -15,19 +15,7 @@ void lcd_init(void)
 
 void lcd_set_window(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2)
 {
-    LCD_IO_WriteReg(LCD_COLUMN_ADDR);
-    LCD_IO_WriteData((uint16_t)(x1 >> 8));
-    LCD_IO_WriteData((uint16_t)(x1 & 0xFFU));
-    LCD_IO_WriteData((uint16_t)(x2 >> 8));
-    LCD_IO_WriteData((uint16_t)(x2 & 0xFFU));
-
-    LCD_IO_WriteReg(LCD_PAGE_ADDR);
-    LCD_IO_WriteData((uint16_t)(y1 >> 8));
-    LCD_IO_WriteData((uint16_t)(y1 & 0xFFU));
-    LCD_IO_WriteData((uint16_t)(y2 >> 8));
-    LCD_IO_WriteData((uint16_t)(y2 & 0xFFU));
-
-    LCD_IO_WriteReg(LCD_GRAM);
+    illi9341_Open_Window(x1, y1, x2 - x1 + 1, y2 - y1 + 1);
 }
 
 void lcd_write_pixels(const uint16_t *data, uint32_t count)

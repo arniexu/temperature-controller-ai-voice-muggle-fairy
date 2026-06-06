@@ -7,16 +7,6 @@
 
 #include "fsmc_8080.h"
 
-/* HAL delay is provided by STM32 HAL runtime. */
-extern void HAL_Delay(uint32_t Delay);
-
-#define LCD_FSMC_BASE_ADDR  ((uint32_t)0x6C000000U)
-#define LCD_CMD_BASE        ((uint32_t)(LCD_FSMC_BASE_ADDR | 0x00001ffeU))
-#define LCD_DATA_BASE       ((uint32_t)(LCD_FSMC_BASE_ADDR | 0x00002000U))
-
-#define LCD_REG_ADDR        (*((volatile uint16_t *)LCD_CMD_BASE))
-#define LCD_RAM_ADDR        (*((volatile uint16_t *)LCD_DATA_BASE))
-
 void LCD_IO_Init(void)
 {
 	/* GPIO/FSMC are initialized by MX_GPIO_Init() and MX_FSMC_Init(). */

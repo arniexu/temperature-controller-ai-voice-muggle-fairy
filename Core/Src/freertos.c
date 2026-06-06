@@ -79,10 +79,6 @@ void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackTy
   *pulIdleTaskStackSize = configMINIMAL_STACK_SIZE;
   /* place for user code */
 }
-void xPortSysTickHandler(void)
-{
-	lv_inc_tick(1);
-}
 
 /* USER CODE END GET_IDLE_TASK_MEMORY */
 

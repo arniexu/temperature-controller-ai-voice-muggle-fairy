@@ -213,6 +213,14 @@ void     ili9341_DisplayOn(void);
 void     ili9341_DisplayOff(void);
 uint16_t ili9341_GetLcdPixelWidth(void);
 uint16_t ili9341_GetLcdPixelHeight(void);
+void illi9341_Open_Window(uint16_t X0,uint16_t Y0,uint16_t width,uint16_t height);
+void illi9341_Scan_Direction(uint8_t direction);
+void illi9341_Display_Mode(uint8_t mode);
+void illi9341_SetCursor(uint16_t Xaddr, uint16_t Yaddr);
+uint16_t illi9341_GetPoint(uint16_t x,uint16_t y);
+void illi9341_DrawPoint(uint16_t x,uint16_t y, uint16_t color);
+void illi9341_Set_BackLight(uint8_t BL_value);
+void illi9341_Clear(uint16_t color);
 
 /* LCD driver structure */
 extern LCD_DrvTypeDef   ili9341_drv;
