@@ -11,7 +11,7 @@
 extern void HAL_Delay(uint32_t Delay);
 
 #define LCD_FSMC_BASE_ADDR  ((uint32_t)0x6C000000U)
-#define LCD_CMD_BASE        ((uint32_t)(LCD_FSMC_BASE_ADDR | 0x00001FFEU))
+#define LCD_CMD_BASE        ((uint32_t)(LCD_FSMC_BASE_ADDR | 0x00001ffeU))
 #define LCD_DATA_BASE       ((uint32_t)(LCD_FSMC_BASE_ADDR | 0x00002000U))
 
 #define LCD_REG_ADDR        (*((volatile uint16_t *)LCD_CMD_BASE))
@@ -27,12 +27,36 @@ void LCD_IO_WriteData(uint16_t RegValue)
 	LCD_RAM_ADDR = RegValue;
 }
 
+void LCD_IO_WriteData2Cmd(uint16_t RegValue,uint16_t d)
+{
+	LCD_RAM_ADDR = RegValue;
+}
+
 void LCD_IO_WriteReg(uint8_t Reg)
 {
 	LCD_REG_ADDR = Reg;
 }
 
-uint32_t LCD_IO_ReadData(uint16_t RegValue, uint8_t ReadSize)
+uint16_t LCD_IO_ReadDataFromReg(uint16_t reg)
+{
+	LCD_REG_ADDR = reg;
+	// DELAY 4 US
+	return LCD_RAM_ADDR;
+}
+
+uint16_t LCD_IO_ReadChipID(void)
+{
+	uint16_t id = 0;
+	LCD_REG_ADDR = 0xd3;
+	volatile uint16_t b1 = LCD_RAM_ADDR & 0xff;
+	volatile uint16_t b2 = LCD_RAM_ADDR & 0xff;
+	volatile uint16_t b3 = LCD_RAM_ADDR & 0xff;
+	volatile uint16_t b4 = LCD_RAM_ADDR & 0xff;
+
+	return (b3 << 8)|b4;
+}
+
+	uint32_t LCD_IO_ReadData(uint16_t RegValue, uint8_t ReadSize)
 {
 	uint32_t read = 0U;
 

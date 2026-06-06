@@ -120,7 +120,38 @@ void ili9341_Init(void)
 {
   /* Initialize ILI9341 low level bus layer ----------------------------------*/
   LCD_IO_Init();
-  
+	
+#if 1
+	ili9341_WriteReg(0x11);
+	LCD_Delay(120);
+	ili9341_WriteReg(0x36);
+	ili9341_WriteData(0x48);
+	
+		ili9341_WriteReg(0x3a);
+	ili9341_WriteData(0x55);
+	
+		ili9341_WriteReg(0x29);
+LCD_Delay(20);
+
+	ili9341_WriteReg(0x2a);
+	ili9341_WriteData(0x0);
+	ili9341_WriteData(0x0);
+	ili9341_WriteData(0x0);
+	ili9341_WriteData(0xef);
+
+	ili9341_WriteReg(0x2b);
+	ili9341_WriteData(0x0);
+	ili9341_WriteData(0x0);
+	ili9341_WriteData(0x1);
+	ili9341_WriteData(0x3f);
+
+	ili9341_WriteReg(0x2c);
+
+for(int i = 0; i < 240*320; i++){
+	ili9341_WriteData(0xf800);
+}
+LCD_Delay(10);
+#else
   /* Configure LCD */
   ili9341_WriteReg(0xCA);
   ili9341_WriteData(0xC3);
@@ -238,6 +269,7 @@ void ili9341_Init(void)
   ili9341_WriteReg(LCD_DISPLAY_ON);
   /* GRAM start writing */
   ili9341_WriteReg(LCD_GRAM);
+#endif
 }
 
 /**
@@ -248,7 +280,7 @@ void ili9341_Init(void)
 uint16_t ili9341_ReadID(void)
 {
   LCD_IO_Init();
-  return ((uint16_t)ili9341_ReadData(LCD_READ_ID4, LCD_READ_ID4_SIZE));
+	return LCD_IO_ReadChipID();
 }
 
 /**

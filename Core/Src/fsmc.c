@@ -73,7 +73,7 @@ void MX_FSMC_Init(void)
 
   if (HAL_SRAM_Init(&hsram1, &Timing, NULL) != HAL_OK)
   {
-    Error_Handler( );
+    //Error_Handler( );
   }
 
   /** Perform the SRAM2 memory initialization sequence
@@ -96,25 +96,25 @@ void MX_FSMC_Init(void)
   hsram2.Init.WriteBurst = FSMC_WRITE_BURST_DISABLE;
   hsram2.Init.PageSize = FSMC_PAGE_SIZE_NONE;
   /* Read timing (official reference) */
-  Timing.AddressSetupTime = 15;
-  Timing.AddressHoldTime = 0;
-  Timing.DataSetupTime = 60;
-  Timing.BusTurnAroundDuration = 0;
+  Timing.AddressSetupTime = 5;
+  Timing.AddressHoldTime = 1;
+  Timing.DataSetupTime = 8;
+  Timing.BusTurnAroundDuration = 1;
   Timing.CLKDivision = 0;
   Timing.DataLatency = 0;
   Timing.AccessMode = FSMC_ACCESS_MODE_A;
   /* Write timing (ILI9341 tuned to match official final BWTR speed) */
-  ExtTiming.AddressSetupTime = 3;
-  ExtTiming.AddressHoldTime = 0;
-  ExtTiming.DataSetupTime = 2;
-  ExtTiming.BusTurnAroundDuration = 0;
+  ExtTiming.AddressSetupTime = 5;
+  ExtTiming.AddressHoldTime = 1;
+  ExtTiming.DataSetupTime = 80;
+  ExtTiming.BusTurnAroundDuration = 1;
   ExtTiming.CLKDivision = 0;
   ExtTiming.DataLatency = 0;
   ExtTiming.AccessMode = FSMC_ACCESS_MODE_A;
 
   if (HAL_SRAM_Init(&hsram2, &Timing, &ExtTiming) != HAL_OK)
   {
-    Error_Handler( );
+    //Error_Handler( );
   }
 
   /* USER CODE BEGIN FSMC_Init 2 */

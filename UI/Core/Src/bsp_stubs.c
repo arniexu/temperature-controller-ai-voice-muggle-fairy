@@ -9,6 +9,7 @@
 void lcd_init(void)
 {
     ili9341_Init();
+	uint32_t chip_id=LCD_IO_ReadChipID();
     ili9341_DisplayOn();
 }
 

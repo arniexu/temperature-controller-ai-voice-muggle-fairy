@@ -157,7 +157,7 @@
 
 /* Level 2 Commands */
 #define LCD_RGB_INTERFACE       0xB0   /* RGB Interface Signal Control */
-#define LCD_FRMCTR1             0xB1   /* Frame Rate Control (In Normal Mode) */
+#define LCD_FRMCTR1             0xB1   /* Frame Rate DOControl (In Normal Mode) */
 #define LCD_FRMCTR2             0xB2   /* Frame Rate Control (In Idle Mode) */
 #define LCD_FRMCTR3             0xB3   /* Frame Rate Control (In Partial Mode) */
 #define LCD_INVTR               0xB4   /* Display Inversion Control */
@@ -195,7 +195,7 @@
 #define LCD_PRC                  0xF7   /* Pump ratio control register */
 
 /* Size of read registers */
-#define LCD_READ_ID4_SIZE        3      /* Size of Read ID4 */
+#define LCD_READ_ID4_SIZE        4      /* Size of Read ID4 */
 
 /**
   * @}

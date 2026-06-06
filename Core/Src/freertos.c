@@ -79,6 +79,11 @@ void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackTy
   *pulIdleTaskStackSize = configMINIMAL_STACK_SIZE;
   /* place for user code */
 }
+void xPortSysTickHandler(void)
+{
+	lv_inc_tick(1);
+}
+
 /* USER CODE END GET_IDLE_TASK_MEMORY */
 
 /**
@@ -139,18 +144,18 @@ void StartDefaultTask(void const * argument)
   g_boot_stage = 0x21U;
 
   if (display_drv_init() != 0) {
-    Error_Handler();
+    // Error_Handler();
   }
   g_boot_stage = 0x22U;
 
   if (touch_drv_init() != 0) {
-    Error_Handler();
+    // Error_Handler();
   }
   g_boot_stage = 0x23U;
 
   g_ui = tianji_ui_init();
   if (g_ui == NULL) {
-    Error_Handler();
+    // Error_Handler();
   }
   g_boot_stage = 0x24U;
 
