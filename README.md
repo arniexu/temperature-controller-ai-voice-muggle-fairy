@@ -1,0 +1,129 @@
+# 天机恒温器 · Tianji Thermostat — STM32F407 Edition
+
+A **cyber-xianxia** themed AI-voice temperature controller ported to the **STM32F407** platform.  
+Combines cultivation-world aesthetics (solar terms, five elements, bagua, realm progression) with practical smart-home thermostat functionality, featuring an AI voice assistant and an animated double-helix particle UI.
+
+## UI Design
+
+Interactive prototype:  
+👉 https://miqm4hlcmthn4.ok.kimi.link/?sharetype=link
+
+### Screen Layout (240 × 320 portrait)
+
+```text
++----------------------------+  y=0
+| Grain in Ear · Status      |  h=30   Status bar — solar term, date, current temp
+| Year / Date         28°C   |
++----------------------------+  y=30
+|                            |
+|    ~ Particle Canvas ~     |
+|   +--------------+         |
+|   | Temperature  |         |  h=195  Main control area
+|   |   24.0°C     |         |         – Animated double-helix particles
+|   | Nascent Soul |         |         – LVGL Arc temperature dial
+|   +--------------+         |         – Cultivation-realm label
+|                            |
++----------------------------+  y=225
+| Qi Refine / Foundation...  |  h=22   Realm-progression indicator
++----------------------------+  y=247
+|    [Spirit Orb]  Voice     |  h=35   AI voice-core button
++----------------------------+  y=282
+| [Mode]  [Wind]  [Timer]    |  h=38   Bottom controls
++----------------------------+  y=320
+| Solar term marquee ...     |         Scrolling solar-term ticker
++----------------------------+
+```
+
+### Key UI Features
+
+| Feature | Description |
+|---------|-------------|
+| **Double-helix particles** | 20-particle animated canvas with lookup-table sin/cos — no floating point |
+| **Temperature dial** | Drag gesture on the LVGL Arc widget; sensitivity `x×0.3 − y×0.2` |
+| **Cultivation realms** | Temperature ranges map to Qi Refining → Foundation → Core Formation → Nascent Soul … |
+| **Solar-term status bar** | Displays the current of 24 solar terms, date and real-time temperature |
+| **AI voice core** | Tap the Spirit Orb to activate; results update dial & realm label via `tianji_ui_voice_result()` |
+
+## Hardware
+
+| Component | Specification |
+|-----------|---------------|
+| MCU | STM32F407VG — 168 MHz, 1 MB Flash, 192 KB SRAM |
+| Display | 240×320 TFT LCD, 16-bit RGB565 (ILI9341 / ST7789) |
+| Touch | XPT2046 resistive touch, SPI |
+| Backlight | PWM-adjustable LED |
+
+## Software Stack
+
+- **STM32CubeF4 HAL** — hardware abstraction layer
+- **LVGL v8.3** — graphics & UI framework
+- **FreeRTOS** — real-time OS (CMSIS-RTOS v1 wrapper)
+- **FatFs** — FAT filesystem (SD card / external flash)
+- **LibJPEG** — JPEG decode for loading image assets
+- **GCC ARM Toolchain** or **Keil MDK** / **STM32CubeIDE**
+
+## Software Architecture
+
+The codebase follows a clean five-layer design. Each layer only depends on the layer below it, making hardware swaps and unit testing straightforward.
+
+```text
+┌─────────────────────────────────────────────────────────────────┐
+│  Application / RTOS Layer                                       │
+│  Core/Src/freertos.c  ·  UI/Core/Src/ui_main.c                 │
+│  – FreeRTOS task: init sequence, lv_timer_handler loop,         │
+│    200 ms status-sync tick, g_boot_stage diagnostics            │
+├─────────────────────────────────────────────────────────────────┤
+│  UI Assembly Layer                                              │
+│  UI/Core/Src/tianji_ui.c  (tianji_ui_t)                        │
+│  – Composes all widgets into one screen                         │
+│  – Exposes set_temp / get_temp / voice_result to the app        │
+├──────────────────────────────┬──────────────────────────────────┤
+│  UI Widget Layer             │  Domain / Data Layer             │
+│  tianji_dial.c   (Arc + drag)│  tianji_data.c                  │
+│  tianji_particles.c (Canvas) │  – 24 solar terms                │
+│  tianji_voice.c  (Orb+rings) │  – cultivation-realm table       │
+│                              │  – wuxing / trigram tables       │
+│                              │  – sin/cos lookup (integer math) │
+├──────────────────────────────┴──────────────────────────────────┤
+│  Driver Integration Layer  (LVGL HAL adapters)                  │
+│  UI/Core/Src/display_drv.c  ·  touch_drv.c                     │
+│  – Registers lv_disp_drv_t / lv_indev_drv_t with LVGL          │
+│  – Line-buffer strategy: 20 lines × 240 px (~9.4 KB)           │
+├─────────────────────────────────────────────────────────────────┤
+│  BSP Component Layer                                            │
+│  Drivers/BSP/Components/ili9341  ·  xpt2046                     │
+│  UI/Core/Src/bsp_stubs.c  (swap this file for your hardware)    │
+│  – lcd_init / lcd_set_window / lcd_write_pixels                 │
+│  – touch_init_hw / touch_is_pressed / touch_read_coords         │
+├─────────────────────────────────────────────────────────────────┤
+│  HAL / CMSIS / Hardware                                         │
+│  Drivers/STM32F4xx_HAL_Driver  ·  CMSIS                        │
+│  FSMC (8080 parallel bus to ILI9341), SPI (XPT2046), TIM, GPIO  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Architecture Assessment
+
+The layering is **reasonable and well-structured** for an embedded UI project of this scale:
+
+| Concern | How it is handled |
+|---------|-------------------|
+| **Hardware portability** | `bsp_stubs.c` is the only file that touches raw LCD/touch registers; replacing it adapts the whole stack to a new board |
+| **LVGL decoupling** | `display_drv` / `touch_drv` act as pure LVGL HAL adapters; widget code never calls BSP functions directly |
+| **Domain data isolation** | `tianji_data.c` has zero LVGL dependency — tables and helpers can be tested on a host without an MCU |
+| **Widget encapsulation** | Each widget (`dial`, `particles`, `voice`) owns its LVGL objects and exposes a clean create/destroy + setter API |
+| **RTOS integration** | A single FreeRTOS task drives both `lv_timer_handler` (5 ms cadence) and periodic status updates (200 ms), avoiding multi-task LVGL synchronisation issues |
+| **Memory strategy** | 20-line LVGL draw buffer keeps heap usage bounded; particle canvas is the largest single allocation (~58 KB), placed in SRAM via linker |
+
+### Other Noteworthy Points
+
+- **FSMC 8080 parallel bus** — the ILI9341 is wired over FSMC rather than SPI, giving a sustained pixel throughput far higher than SPI alone (important for full-screen redraws).
+- **FatFs + LibJPEG** — file system and JPEG decode are included in the middleware stack, enabling future loading of custom background images or firmware assets from an SD card without code changes to the UI layer.
+- **Boot-stage diagnostics** — `g_boot_stage` is a `volatile uint32_t` incremented at every init step. A debugger can read it from the watch window to pinpoint exactly where a hang occurred during startup.
+- **Touch calibration hook** — `touch_drv_calibrate()` is scaffolded and can be triggered on first boot or via a factory-reset gesture, writing calibration data to FatFs.
+- **BSP self-test** — `Tests/BSP/main_bsp_test.c` and `SOP_BSP_LCD_SELF_TEST.md` provide a standalone LCD/touch smoke-test that can be flashed independently to verify hardware before running the full application.
+- **Dual build systems** — the project ships both a `CMakeLists.txt` (GCC + CMake) and Keil `.uvprojx` files, so it compiles with either toolchain without modification.
+
+## Full Documentation
+
+See **[UI/README.md](UI/README.md)** for the complete guide: file structure, BSP driver integration, build instructions, performance tuning, and memory estimates.
