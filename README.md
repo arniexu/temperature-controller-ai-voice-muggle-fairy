@@ -3,6 +3,16 @@
 A **cyber-xianxia** themed AI-voice temperature controller ported to the **STM32F407** platform.  
 Combines cultivation-world aesthetics (solar terms, five elements, bagua, realm progression) with practical smart-home thermostat functionality, featuring an AI voice assistant and an animated double-helix particle UI.
 
+## Background
+
+This is a **creative prototype**, not a commercial product.
+
+The idea came from a personal exploration: what if a smart thermostat didn't look like a boring industrial panel, but instead reflected traditional Chinese cosmology — the 24 solar terms, the five elements, the eight trigrams, and the concept of cultivation realms?
+
+The result is a "cyber-xianxia" (cyber + cultivation fantasy) thermostat. You can talk to it, ask about solar terms, and set the temperature by voice. The UI responds with an animated double-helix particle canvas and realm progression.
+
+I built this in my spare time to learn STM32, LVGL, FreeRTOS, and FSMC-driven LCDs. The hardware bring-up took about 4 weeks. The UI and architecture evolved over time.
+
 ## UI Design
 
 Interactive prototype:  
