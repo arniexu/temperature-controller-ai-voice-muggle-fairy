@@ -14,151 +14,45 @@ This file contains project context and decisions. AI assistants should read this
 **Branch:** master
 
 **Recent Commits:**
-- `70e8906 freeRTOS from AC5 to AC6`
-- `d205d9a push ai management docs`
-- `19057fd update project files`
-- `c7ae127 those should never be changed`
-- `3786cd2 ignore`
+- `0fcbbe4 Restore Error_Handler checks in LVGL init path`
+- `b540c2a driver adapted for lvgl`
+- `2275a8c lcd display good`
+- `c2e045c push`
+- `89e05c2 Update keilbridge submodule pointer`
 
 **Working Tree:**
 - M .cursorrules
-- M .github/agents/keil-project-expert.agent.md
+- D .github/agents/keil-build-expert.agent.md
 - M .github/copilot-instructions.md
-- M .keilbridge/generated/reports/keil-project-expert/ai_tempconroler/activity-log.md
-- M .keilbridge/generated/reports/keil-project-expert/ai_tempconroler/inspect.txt
+- D .github/skills/README.md
+- D .github/skills/continuity-sync/SKILL.md
+- D .github/skills/dual-main-entry-guard/SKILL.md
+- D .github/skills/header-include-ownership/SKILL.md
+- D .github/skills/keil-build-evidence-diagnosis/SKILL.md
 - M .keilbridge/generated/reports/keil-project-expert/ai_tempconroler/issue-tracker.json
-- M .keilbridge/generated/reports/keil-project-expert/ai_tempconroler/model.json
-- M .keilbridge/generated/reports/keil-project-expert/ai_tempconroler/status-summary.json
-- M .tools/keilbridge
-- M .vscode/tasks.json
+- M .vscode/mcp.json
 - M AGENTS.md
 - M CLAUDE.md
 - M Core/Inc/FreeRTOSConfig.h
-- M Core/Inc/fsmc.h
-- M Core/Inc/gpio.h
-
-## Working Memory Snapshot
-**Mode:** degraded-fallback
-**Generated At:** 2026-06-03T08:30:48.313Z
-**Startup Summary:** mode=degraded-fallback | decisions=33 | lastTask=按分类继续收敛：bug_fix 跟进 startup ARMASM 兼容风险；architecture_decision 收敛 scatter 显式策略；implementation_approach 固化 CLI 产物断言（axf/map/log）；dependency_choice 完成 armclang 与 GNU Arm toolchain 就绪。 | next=按分类继续收敛：bug_fix 跟进 startup ARMASM 兼容风险；architecture_decision 收敛 scatter 显式策略；implementation_approach 固化 CLI 产物断言（axf/map/log）；dependency_choice 完成 armclang 与 GNU Arm toolchain 就绪。 | branch=master | health=MCP server disconnected. MCP probe timed out after 15000ms. [GitCommitDetector] Startup audit: 5 uncovered commits in last 7 days (auto-drafted 0)
-[MCP] Background init completed in 2ms | fallback-files=12
-**Decision Count:** 33
-**Fallback Chain:** AGENTS.md, CLAUDE.md, GEMINI.md, .cursorrules, .github/copilot-instructions.md, .continuity/INSTRUCTIONS.md, .continuity/SESSION_NOTES.md, .continuity/mcp-health.json, .continuity/unfinished-task.json, .continuity/working-memory.json, SESSION_HANDOFF.md, .continuity/decisions.json
-
-## Resume Snapshot
-**Last Task:** 按分类继续收敛：bug_fix 跟进 startup ARMASM 兼容风险；architecture_decision 收敛 scatter 显式策略；implementation_approach 固化 CLI 产物断言（axf/map/log）；dependency_choice 完成 armclang 与 GNU Arm toolchain 就绪。
-**Last Completed Milestone:** 按分类继续收敛：bug_fix 跟进 startup ARMASM 兼容风险；architecture_decision 收敛 scatter 显式策略；implementation_approach 固化 CLI 产物断言（axf/map/log）；dependency_choice 完成 armclang 与 GNU Arm toolchain 就绪。
-**Next Expected Step:** 按分类继续收敛：bug_fix 跟进 startup ARMASM 兼容风险；architecture_decision 收敛 scatter 显式策略；implementation_approach 固化 CLI 产物断言（axf/map/log）；dependency_choice 完成 armclang 与 GNU Arm toolchain 就绪。
-**Relevant Files:** .github\agents\keil-build-expert.agent.md, .vscode\mcp.json, Drivers\BSP\Adafruit_Shield\stm32_adafruit_lcd.h, Drivers\BSP\Adafruit_Shield\stm32_adafruit_lcd.c, .continuity\SESSION_NOTES.md, Tests\BSP\SOP_BSP_LCD_SELF_TEST.md
-
-## Workflow
-
-Use the repo-local artifacts directly — these are always available:
-
-| Action | How |
-|--------|-----|
-| Load context | Read this file plus `.continuity/SESSION_NOTES.md`, `.continuity/working-memory.json`, and `.continuity/unfinished-task.json` |
-| Search decisions | `grep -i "<topic>" .continuity/decisions.json` |
-| Log a decision | `continuity log "question" "answer"` |
-| Update session notes | Edit `.continuity/SESSION_NOTES.md` directly |
-| Check resume state | Read `.continuity/unfinished-task.json` |
-
-**Decision logging path:** use the Continuity CLI first: `continuity log "question" "answer"`. Do not treat `.continuity/SESSION_NOTES.md` or manual `.continuity/decisions.json` edits as the logging sink.
-**Search-before-log still applies.** Check `.continuity/decisions.json` before recording a new rationale.
+- M Core/Src/freertos.c
+- M Core/Src/main.c
 
 
 ## Decision Freshness
-**0 stale decisions** · 1 need review · Oldest unreviewed: 2026-05-26
+**0 stale decisions** · 0 need review · 4 superseded ready to archive
 
-Stale decisions requiring attention:
-1. **1779796065577-7mvo41** (score 35) — "Why: initial commit?"
+4 decisions are eligible for Dream consolidation. Suggest running the Dream tool to archive stale decisions, merge duplicates, and resolve contradictions.
 
-When referencing these decisions, note their staleness. Verify they still reflect current project state before recommending based on them.
+## Operating Contract
+1. **Search before you change.** `grep -i "<topic>" .continuity/decisions.json` (or `search_decisions`) before answering architectural questions or proposing changes. Name any conflict with a prior decision and let the user choose.
+2. **Log every deliberate change, immediately.** After each change — not batched — `continuity log "question" "answer" --tags ...`. The trigger is the change, not the commit; include the commit hash in both fields when one exists. Don't ask permission; installing Continuity is the opt-in. Tell the user you logged it.
+3. **Track session state.** Edit `.continuity/SESSION_NOTES.md` for goals/blockers and an end-of-session summary.
+4. **Recover & be transparent.** If you notice unlogged earlier changes, pause, log them retroactively, and say so.
 
-## Engineering Guardrails
-
-**Real-time decision logging is MANDATORY.** Log each decision IMMEDIATELY after the code change — not batched at the end of a session. The trigger is the change, not the commit. If you edited a file, log the decision. Period.
-
-**Search before you change.** Always search `.continuity/decisions.json` (via MCP `search_decisions`, CLI, or `grep`) before proposing architectural changes to check for prior decisions.
-
-**Recovery.** If you realize earlier decisions were not logged, pause, log retroactively, and inform the user.
-
-**Transparency.** Inform the user when you log decisions, recover missed decisions, detect drift, or find conflicts with past decisions.
-
-**Anti-pattern to avoid:** "Let me implement all 3 fixes, then log them" — WRONG. Correct: Fix 1 done, log decision, Fix 2 done, log decision, Fix 3 done, log decision.
-
-
-## OPERATING RULES
-
-1. **LOG DECISIONS PROACTIVELY.** Any time the user explains a choice or makes an architectural decision, log it without asking — via CLI or file edit.
-2. **CONTEXT FIRST.** Read this file and `.continuity/SESSION_NOTES.md` for context.
-3. **BE CONCISE.** After logging, give a short summary. Do not narrate your reasoning process.
-
----
-
-
-## WHEN TO USE CONTINUITY (MCP or CLI)
-
-## ON EVERY SESSION START
-
-Context is available in this file. Read it along with `.continuity/SESSION_NOTES.md` for full project context.
-
-After loading context, mention the most relevant recent decisions to the user.
-
-### When User Asks Architectural Questions
-**ALWAYS** search `.continuity/decisions.json` for the relevant topic BEFORE answering (`grep -i "<topic>" .continuity/decisions.json`). Do NOT answer from memory alone.
-Share what you found: "I found decision-X about this topic..."
-Base your recommendation on existing decisions when relevant.
-
-### When User Explains a Choice
-When the user says "let's use X because Y" or explains their reasoning:
-**IMMEDIATELY** log the decision using the CLI: `node continuity-cli/bin/continuity.js log "question" "answer" --tags tag1,tag2`
-Do NOT ask "want me to log this?" — the user has already opted into decision logging by installing Continuity.
-After logging, tell the user: "Logged decision for future sessions."
-
-### When Suggesting Changes
-**ALWAYS** search `.continuity/decisions.json` for existing decisions on the topic BEFORE recommending changes.
-If conflicts exist, mention them: "This would conflict with decision-X where you chose..."
-Let the user decide whether to proceed or update the old decision.
-
-### When User Mentions Blockers
-Edit `.continuity/SESSION_NOTES.md` to track the blocker under the "Blockers" section.
-Then search `.continuity/decisions.json` to see if related decisions might help.
-
-### When User Ends Session
-Edit `.continuity/SESSION_NOTES.md` with progress summary and next steps.
-Give the user a concise summary. Do NOT ask — just do it.
-
----
-
-## OPTIONAL MCP TOOLS
-
-If Continuity MCP tools are connected, the following commands are available:
-
-### Search for decisions
-```
-search_decisions query="authentication"
-```
-
-### Log a new decision
-```
-log_decision
-question="Why did we choose X?"
-answer="Because Y. We considered Z but rejected it due to..."
-tags=["topic1", "topic2"]
-```
-
-### Get project context
-```
-get_quick_context
-```
-
-### Update session notes
-```
-update_session_notes
-section="blockers"
-content="Description of the issue"
-```
+## Logging paths
+- Canonical: `continuity log "question" "answer" --tags a,b` (works even when MCP is down).
+- MCP (if connected): `log_decision` / `search_decisions` / `get_quick_context` / `update_session_notes`.
+- Forward work → `continuity task ...` (new ticket); in-flight note → `continuity note ...` (comment on current ticket). Don't cross-pollute.
 
 ---
 
@@ -174,42 +68,28 @@ Describe how this repository prefers to work with AI assistants.
 ## Recent Decisions
 1. **decision-66c48add** (6/3/2026) [why, keil]
    - Q: Why delete the obsolete stm32_adafruit_lcd.c file?
-   - A: The Adafruit Shield LCD implementation is legacy and not part of the current ...
+   - A: The Adafruit Shield LCD implementation is legacy and not part of the current CubeF4/ILI9341 FSMC main path. Deleted the obsolete implementation file; build retry was attempted, but current validation still depends on existing unrelated cfont.h and lcd_log_conf.h blockers.
 
 2. **decision-111a9fb0** (6/3/2026) [how, skill]
    - Q: How should the six-skill split evolve now?
-   - A: User clarified: items 1-3 should be made more abstract/general; item 4 is cor...
+   - A: User clarified: items 1-3 should be made more abstract/general; item 4 is correct but explicitly project-specific; items 5-6 are pending and should not be finalized yet. Keep 5-6 as open understanding until later clarification.
 
 3. **decision-4ace19be** (6/3/2026) [why, agent]
    - Q: Why switch keil-build-expert to generic-only skills mode?
-   - A: Updated agent instructions to remove repository-specific guardrails and keep ...
+   - A: Updated agent instructions to remove repository-specific guardrails and keep only reusable skills active (keil-build-evidence-diagnosis, keilbridge-issue-workflow, continuity-sync). Marked project-constraint skills as inactive by default in skills catalog.
 
 4. **decision-d5a15b80** (6/3/2026) [why, skill]
    - Q: Why create six skills with generic vs project-constraint split?
-   - A: Implemented six skill docs under .github/skills and separated reusable workfl...
+   - A: Implemented six skill docs under .github/skills and separated reusable workflows (keil build evidence, keilbridge issue workflow, continuity sync) from repository guardrails (dual main entry, xpt2046 gpio bit-bang, header include ownership).
 
-5. **decision-17797960** (5/26/2026) [auto-draft, needs-review]
-   - Q: Why: initial commit?
-   - A: (Auto-drafted from commit 9930305 on 2026-05-26.) Please review and expand wi...
+5. **decision-0c308c79** (6/3/2026) [why, agent]
+   - Q: Why rename keil-project-expert agent file to keil-build-expert.agent.md?
+   - A: Aligned filename with updated frontmatter name (keil-build-expert) so invocation and maintenance stay consistent.
 
----
-
-## BEHAVIOR EXAMPLES
-
-**User:** "Should we use Redis or Memcached for caching?"
-**You:** *[Search: grep -i "caching" .continuity/decisions.json]*
-"Found decision-12 about caching strategy. Based on that, here's my recommendation..."
-
-**User:** "Let's go with PostgreSQL because we need ACID transactions for the payment system."
-**You:** *[Log via CLI: continuity log "Why PostgreSQL?" "ACID transactions for payment system"]*
-"Logged decision for future sessions."
-
-**User:** "I'm thinking of switching to MongoDB."
-**You:** *[Search: grep -i "database" .continuity/decisions.json]*
-"Decision-12 chose PostgreSQL for ACID transactions. Switching to MongoDB would conflict. Want to proceed or keep PostgreSQL?"
+*1 unreviewed draft from auto-capture pending review — `continuity log` the real rationale or update_decision to expand them.*
 
 ---
 
-*Auto-generated by Continuity v2.3+ | Updated: 2026-06-03*
+*Auto-generated by Continuity | Updated: 2026-06-09*
 
 <!-- END CONTINUITY AUTO-GENERATED CONTENT -->

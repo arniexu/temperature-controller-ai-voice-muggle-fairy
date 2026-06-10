@@ -13,6 +13,9 @@
 #include "tianji_voice.h"
 #include <stdint.h>
 
+/* Debug switches: set to 1 during bring-up to isolate failures */
+#define UI_DEBUG_DISABLE_PARTICLES  1   /* Skip particle helix to avoid canvas OOM / CPU stall on STM32F407 */
+
 #ifdef __cplusplus
 extern "C" {
 #endif

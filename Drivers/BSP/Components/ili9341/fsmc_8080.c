@@ -7,6 +7,7 @@
 
 #include "fsmc_8080.h"
 
+
 void LCD_IO_Init(void)
 {
 	/* GPIO/FSMC are initialized by MX_GPIO_Init() and MX_FSMC_Init(). */
@@ -19,7 +20,8 @@ void LCD_IO_WriteData(uint16_t RegValue)
 
 void LCD_IO_WriteData2Cmd(uint16_t RegValue,uint16_t d)
 {
-	LCD_RAM_ADDR = RegValue;
+	LCD_REG_ADDR = RegValue;
+	LCD_RAM_ADDR = d;
 }
 
 void LCD_IO_WriteReg(uint8_t Reg)

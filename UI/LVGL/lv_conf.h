@@ -21,7 +21,7 @@
  * MEMORY SETTINGS
  *====================*/
 #define LV_MEM_CUSTOM           0
-#define LV_MEM_SIZE             (32U * 1024U)   /* 32KB for LVGL heap */
+#define LV_MEM_SIZE             (48U * 1024U)   /* 48KB for LVGL heap (reduced from 80KB to fit STM32F407 128KB SRAM) */
 
 /*====================
  * HAL SETTINGS
@@ -83,10 +83,10 @@
 #define LV_USE_ARC              1
 #define LV_USE_BAR              1
 #define LV_USE_BTN              1
-#define LV_USE_BTNMATRIX        0
+#define LV_USE_BTNMATRIX        1
 #define LV_USE_CANVAS           1
 #define LV_USE_CHECKBOX         0
-#define LV_USE_DROPDOWN         0
+#define LV_USE_DROPDOWN         1
 #define LV_USE_IMG              1
 #define LV_USE_LABEL            1
 #define LV_USE_LINE             1
@@ -106,9 +106,6 @@
 #define LV_USE_MSGBOX           0
 #define LV_USE_SPINBOX          0
 #define LV_USE_SPINNER          1
-#define LV_USE_CALENDAR         0
-#define LV_USE_CALENDAR_HEADER_ARROW    0
-#define LV_USE_CALENDAR_HEADER_DROPDOWN 0
 #define LV_USE_TABVIEW          0
 #define LV_USE_TILEVIEW         0
 #define LV_USE_WIN              0

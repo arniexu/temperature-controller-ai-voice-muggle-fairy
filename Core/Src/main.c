@@ -26,7 +26,13 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#ifdef ILI9341_SELF_TEST
+#include "../../Tests/BSP/ili9341_self_test.h"
+#endif
+#ifdef LVGL_MINI_TEST
+#include "../../Tests/LVGL/lvgl_mini_test.h"
+#endif
+#include "lvgl.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -96,7 +102,12 @@ int main(void)
   MX_FATFS_Init();
   MX_LIBJPEG_Init();
   /* USER CODE BEGIN 2 */
-
+#ifdef ILI9341_SELF_TEST
+  ili9341_self_test();
+#endif
+#ifdef LVGL_MINI_TEST
+	lvgl_mini_test();
+#endif
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in cmsis_os2.c) */

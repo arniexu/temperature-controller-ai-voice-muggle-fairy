@@ -150,6 +150,14 @@ static void HAL_FSMC_MspInit(void){
   PF15   ------> FSMC_A9
   PG0   ------> FSMC_A10
   PG1   ------> FSMC_A11
+  PG2   ------> FSMC_A12
+  PG3   ------> FSMC_A13
+  PG4   ------> FSMC_A14
+  PG5   ------> FSMC_A15
+  PD14   ------> FSMC_D0
+  PD15   ------> FSMC_D1
+  PD0   ------> FSMC_D2
+  PD1   ------> FSMC_D3
   PE7   ------> FSMC_D4
   PE8   ------> FSMC_D5
   PE9   ------> FSMC_D6
@@ -165,14 +173,6 @@ static void HAL_FSMC_MspInit(void){
   PD11   ------> FSMC_A16
   PD12   ------> FSMC_A17
   PD13   ------> FSMC_A18
-  PD14   ------> FSMC_D0
-  PD15   ------> FSMC_D1
-  PG2   ------> FSMC_A12
-  PG3   ------> FSMC_A13
-  PG4   ------> FSMC_A14
-  PG5   ------> FSMC_A15
-  PD0   ------> FSMC_D2
-  PD1   ------> FSMC_D3
   PD4   ------> FSMC_NOE
   PD5   ------> FSMC_NWE
   PG10   ------> FSMC_NE3

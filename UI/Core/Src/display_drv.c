@@ -16,10 +16,7 @@ static void display_flush_cb(lv_disp_drv_t *drv, const lv_area_t *area, lv_color
     (void)drv;
 
     lcd_set_window((uint16_t)area->x1, (uint16_t)area->y1, (uint16_t)area->x2, (uint16_t)area->y2);
-    while (pixels--) {
-        lcd_write_pixel(color_p->full);
-        color_p++;
-    }
+    lcd_write_pixels((const uint16_t *)color_p, pixels);
 
     lv_disp_flush_ready(drv);
 }

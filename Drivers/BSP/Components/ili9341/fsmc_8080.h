@@ -9,7 +9,10 @@ extern "C" {
 /* HAL delay is provided by STM32 HAL runtime. */
 extern void HAL_Delay(uint32_t Delay);
 
+//LCD_CS FSMC NE4
+//LCD WR/CLK FSMC NWE
 #define LCD_FSMC_BASE_ADDR  ((uint32_t)0x6C000000U)
+//@TODO: LCD RS is FSMC_A12
 #define LCD_CMD_BASE        ((uint32_t)(LCD_FSMC_BASE_ADDR | 0x00001ffeU))
 #define LCD_DATA_BASE       ((uint32_t)(LCD_FSMC_BASE_ADDR | 0x00002000U))
 

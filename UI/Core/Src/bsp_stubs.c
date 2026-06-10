@@ -16,6 +16,8 @@ void lcd_init(void)
 void lcd_set_window(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2)
 {
     illi9341_Open_Window(x1, y1, x2 - x1 + 1, y2 - y1 + 1);
+    /* Ensure following data words are treated as GRAM pixel stream. */
+    ili9341_WriteReg(0x2C);
 }
 
 void lcd_write_pixels(const uint16_t *data, uint32_t count)
