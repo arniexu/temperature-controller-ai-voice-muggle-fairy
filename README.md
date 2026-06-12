@@ -1,7 +1,28 @@
 # 天机恒温器 · Tianji Thermostat — STM32F407 版
 
-一个**赛博仙侠**主题的 AI 语音温控器，移植到 **STM32F407** 平台。  
-将修仙世界观（二十四节气、五行八卦、境界晋升）与实用智能温控功能融为一体，配有 AI 语音助手和动态双螺旋粒子特效 UI。
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Platform](https://img.shields.io/badge/Platform-STM32F407-blue)](https://www.st.com/en/microcontrollers-microprocessors/stm32f407zg.html)
+[![Framework](https://img.shields.io/badge/UI-LVGL%20v8.3-orange)](https://lvgl.io/)
+[![RTOS](https://img.shields.io/badge/RTOS-FreeRTOS-green)](https://freertos.org/)
+[![Compiler](https://img.shields.io/badge/Compiler-ARMCLANG%20V6.24-red)](https://developer.arm.com/Tools%20and%20Software/Arm%20Compiler%20for%20Embedded)
+
+> **把修仙世界观塞进温控器 —— 用语音调节温度时，你的境界从炼气一路晋升到元婴。**
+
+<p align="center">
+  <i>⚠️ 演示视频/GIF 占位 — 请替换为实际演示：粒子动画 · 温度拖拽 · 语音交互 · 境界晋升</i>
+</p>
+<!--
+<p align="center">
+  <img src="docs/demo.gif" width="400" alt="天机恒温器演示"/>
+</p>
+-->
+
+<p align="center">
+  <a href="#快速开始">🚀 快速开始</a> ·
+  <a href="#软件架构">🏗️ 软件架构</a> ·
+  <a href="#常见问题">❓ 常见问题</a> ·
+  <a href="https://github.com/arniexu/temperature-controller-ai-voice-muggle-fairy/releases">📦 下载固件</a>
+</p>
 
 ---
 
@@ -17,6 +38,7 @@
 - [快速开始](#快速开始)
 - [常见问题](#常见问题)
 - [预编译固件](#预编译固件)
+- [创建 Release](#创建-release)
 - [完整文档](#完整文档)
 - [许可证](#许可证)
 
@@ -434,6 +456,50 @@ A: `Tests/BSP/` 目录下有独立的 LCD/触摸冒烟测试代码。在 Keil �
 3. 烧录地址：`0x08000000`
 
 > 预编译固件会随 Release 版本发布，请关注 [Releases](https://github.com/arniexu/temperature-controller-ai-voice-muggle-fairy/releases) 页面。
+
+---
+
+## 创建 Release
+
+如果你想分发给不懂编译的人（或自己快速部署），建议创建一个 GitHub Release：
+
+### 步骤
+
+1. **编译工程** — 在 Keil 中 `Project → Build Target`（F7），确保 `0 Error(s), 0 Warning(s)`
+2. **找到固件文件** — 编译产物在 `MDK-ARM/ai_tempconroler/ai_tempconroler.hex`
+3. **创建 Release**：
+   - 打开仓库 GitHub 页面 → `Releases` → `Create a new release`
+   - **Tag**: `v1.0.0`（或当前版本号）
+   - **Title**: `v1.0.0 - 首个预编译固件`
+   - **描述**（模板）：
+
+     ```markdown
+     ## 🔥 预编译固件 - 开箱即用
+
+     直接烧录，无需安装 Keil。
+
+     ### 适用硬件
+     - 启明欣欣 STM32F407 开发板（高配版 V6.1）
+     - STM32F407ZGT6 + ILI9341 LCD (FSMC) + XPT2046 触摸
+
+     ### 烧录方法
+     1. 下载 `ai_tempconroler.hex`
+     2. 用 STM32CubeProgrammer 或 ST-Link Utility 烧录
+     3. 烧录地址：`0x08000000`
+     4. 复位开发板即可看到效果
+
+     ### 验证现象
+     - LCD 显示状态栏 + 粒子动画
+     - 触摸拖拽可调节温度
+     - 底部按钮可点击
+     ```
+
+   - **上传** `ai_tempconroler.hex` 到 Release
+   - 点击 `Publish release`
+
+4. **更新 Badge** — 发布后 README 中顶部的下载链接会自动生效
+
+> 之后每次发布新版本，只需重复以上步骤并递增 tag 版本号即可。
 
 ---
 
