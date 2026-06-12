@@ -1,4 +1,4 @@
-# 天机恒温器 · Tianji Thermostat — STM32F407 版
+ # 天机恒温器 · Tianji Thermostat — STM32F407 版
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Platform](https://img.shields.io/badge/Platform-STM32F407-blue)](https://www.st.com/en/microcontrollers-microprocessors/stm32f407zg.html)
@@ -21,7 +21,8 @@
   <a href="#快速开始">🚀 快速开始</a> ·
   <a href="#软件架构">🏗️ 软件架构</a> ·
   <a href="#常见问题">❓ 常见问题</a> ·
-  <a href="https://github.com/arniexu/temperature-controller-ai-voice-muggle-fairy/releases">📦 下载固件</a>
+  <a href="https://github.com/arniexu/temperature-controller-ai-voice-muggle-fairy/releases">📦 下载固件</a> ·
+  <a href="AI_WORKFLOW.md">🤖 AI 开发工作流</a>
 </p>
 
 ---
@@ -39,6 +40,7 @@
 - [常见问题](#常见问题)
 - [预编译固件](#预编译固件)
 - [创建 Release](#创建-release)
+- [开发工具配置](#开发工具配置)
 - [完整文档](#完整文档)
 - [许可证](#许可证)
 
@@ -500,6 +502,33 @@ A: `Tests/BSP/` 目录下有独立的 LCD/触摸冒烟测试代码。在 Keil �
 4. **更新 Badge** — 发布后 README 中顶部的下载链接会自动生效
 
 > 之后每次发布新版本，只需重复以上步骤并递增 tag 版本号即可。
+
+---
+
+## 开发工具配置
+
+### VS Code 编辑器集成（可选）
+
+如果你想在 VS Code 中浏览和编辑代码（获得代码跳转、自动补全、错误提示），仓库根目录的 `.vscode/settings.json` 已预配好 C/C++ IntelliSense：
+
+- **Include 路径** — 覆盖 HAL、FreeRTOS、LVGL、FatFs、LibJPEG、BSP、UI、Utilities 所有头文件
+- **预定义宏** — `DEBUG`、`USE_HAL_DRIVER`、`STM32F407xx`、`LV_CONF_INCLUDE_SIMPLE`
+- **编译器参数** — `-mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard`
+
+> ⚠️ **使用前必须修改一行：** `compilerPath` 当前指向 `C:/Users/xuqianjx/...`，请改为你本机 Keil ARMCLANG 的实际路径（搜索 `armclang.exe` 即可找到）。
+
+### 推荐的 VS Code 插件
+
+| 插件 | 用途 |
+|------|------|
+| **C/C++ (Microsoft)** | IntelliSense、代码跳转、调试 |
+| **ARM Assembly** | `.s` / `.S` 汇编文件语法高亮 |
+| **LinkerScript** | `.ld` / `.sct` 链接脚本语法高亮 |
+| **Keil Assistant** | 在 VS Code 中调用 Keil 编译（可选） |
+
+### AI 辅助开发
+
+本项目约 40% 的代码由 AI 辅助生成。如果你对"如何用 AI 工具开发嵌入式项目"感兴趣，请阅读 **[AI_WORKFLOW.md](AI_WORKFLOW.md)** —— 里面详细记录了工具链选型、四层 AI 架构、典型工作流和经验教训。
 
 ---
 

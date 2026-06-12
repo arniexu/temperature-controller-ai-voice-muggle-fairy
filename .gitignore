@@ -1,6 +1,16 @@
-
-# Continuity
-SESSION_HANDOFF.md
+# Continuity runtime data (personal paths & session data)
 .continuity/
+SESSION_HANDOFF.md
+.cursorrules
+.cursorrules.dcg
+
+# KeilBridge generated reports (contains user paths)
+.keilbridge/generated/
+
+# Embedder bootstrap context (personal snapshot)
+.embedder/bootstrap-context-prod.enc
+
+# Build artifacts
 *.o
 *.d
+build/
