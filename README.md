@@ -1,4 +1,4 @@
- woxian# 天机恒温器 · Tianji Thermostat — STM32F407 版
+# 天机恒温器 · Tianji Thermostat — STM32F407 版
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Platform](https://img.shields.io/badge/Platform-STM32F407-blue)](https://www.st.com/en/microcontrollers-microprocessors/stm32f407zg.html)
@@ -11,6 +11,7 @@
 <p align="center">
   <i>⚠️ 演示视频/GIF 占位 — 请替换为实际演示：粒子动画 · 温度拖拽 · 语音交互 · 境界晋升</i>
 </p>
+
 <!--
 <p align="center">
   <img src="docs/demo.gif" width="400" alt="天机恒温器演示"/>
@@ -24,6 +25,7 @@
   <a href="https://github.com/arniexu/temperature-controller-ai-voice-muggle-fairy/releases">📦 下载固件</a> ·
   <a href="AI_WORKFLOW.md">🤖 AI 开发工作流</a>
 </p>
+
 
 ---
 
@@ -44,6 +46,7 @@
 - [完整文档](#完整文档)
 - [许可证](#许可证)
 
+
 ---
 
 ## 项目背景
@@ -59,6 +62,7 @@
 - ✨ **看动态双螺旋粒子动画**——温度变化时，粒子会随之律动
 - 🧘 **感受境界晋升**——温度范围映射到修仙境界：炼气 → 筑基 → 金丹 → 元婴……
 
+
 ### 这个项目适合谁？
 
 > 前提：你应该已经跑通过一个 STM32 点灯程序，用过 Keil，知道 GPIO 是什么。
@@ -70,6 +74,7 @@
 | **准备做自己第一个产品的开发者** | 从 CubeMX 配置到 Release 发布的完整流程、AI 辅助嵌入式开发的工作流、如何写一篇别人看得懂的 README |
 
 > **这个仓库的组织方式就是"我希望当初有人这样教我"的方式。** 我本人也是第一次使用 F407、FreeRTOS、LVGL、FSMC——所以代码里注释很多，不是炫技，是怕你和我当初一样踩坑。
+
 
 ### 诚实预告：哪些地方会让人头疼
 
@@ -85,6 +90,7 @@
 
 > **最重要的心态：** 这个项目的价值不是"每行代码你都能看懂"——是"你可以先把它跑起来，再逐层往深挖"。跟跑通一个点灯程序一样：灯亮了，信心就来了。
 
+
 ---
 
 ## 开发故事
@@ -94,6 +100,7 @@
 这个项目最初在 STM32F103 上实验，但 UI（240×320、动画、粒子）太重了。于是换到了一块**启明欣欣 STM32F407 开发板（高配版 V6.1）**——它集成了本项目需要的所有硬件：LCD、触摸、SD 卡槽、充足的 RAM/Flash。
 
 **这是我第一次使用以下所有技术：**
+
 - 第一次使用 **STM32F407**（此前只有 F103 经验）
 - 第一次在实际项目中使用 **FreeRTOS**
 - 第一次使用 **LVGL** 做 GUI
@@ -102,9 +109,11 @@
 尽管全是新东西，利用业余时间（晚上和周末）大约 3 周就让系统跑起来了。
 
 **开发方式：**
+
 - 大量初始代码（工具链迁移、驱动桩、LVGL 集成）由 AI 生成——我专注于调试、集成和架构设计
 - 同时支持 ARM Compiler (AC6) 和 Clang 两种工具链
 - 五层软件架构是代码跑通之后，我自己设计并重构的
+
 
 ---
 
@@ -119,6 +128,7 @@
 
 > **没有这块开发板？** 不用急。本项目的 BSP 层通过 `bsp_stubs.c` 做了抽象，你只需要替换这一个文件就能适配你自己的硬件。详见 [UI/README.md](UI/README.md) 中的移植指南。
 
+
 ### 本项目使用的外设
 
 | 外设模块 | 型号/规格 | 连接方式 | 用途 |
@@ -131,6 +141,7 @@
 | **串口** | UART1 (PA9/PA10) | MAX232 | 调试日志 / 语音模块通信 |
 
 > 完整管脚映射请参考 [pin mapping.md](pin mapping.md)
+
 
 ---
 
@@ -149,6 +160,7 @@
 
 > 工程文件位于 `MDK-ARM/ai_tempconroler.uvprojx`，双击即可打开。
 
+
 #### 方式二：CMake + GCC（适合进阶用户）
 
 | 软件 | 版本要求 |
@@ -163,6 +175,7 @@ cmake -B build -G "Ninja"
 cmake --build build
 ```
 
+
 ### 依赖库
 
 | 库 | 版本 | 用途 |
@@ -174,6 +187,7 @@ cmake --build build
 | **STM32CubeF4 HAL** | - | 硬件抽象层 |
 
 > LVGL 以 git submodule 形式引入，仓库 clone 后需执行 `git submodule update --init`。
+
 
 ---
 
@@ -249,6 +263,7 @@ ai_tempconroler/
 
 > 标记 ★ 的是你可能最先需要打开或修改的文件。
 
+
 ---
 
 ## 软件架构
@@ -293,6 +308,7 @@ ai_tempconroler/
 └─────────────────────────────────────────────────────────────────┘
 ```
 
+
 ### 架构评估
 
 | 关注点 | 实现方式 |
@@ -304,6 +320,7 @@ ai_tempconroler/
 | **RTOS 集成** | 单个 FreeRTOS 任务同时驱动 `lv_timer_handler`（5ms 周期）和定时状态更新（200ms），避免多任务下 LVGL 同步问题 |
 | **内存策略** | 20 行的 LVGL draw buffer 控制堆使用；粒子画布是最大的单次分配（≈58 KB），通过链接脚本放在 SRAM 中 |
 
+
 ### 设计亮点
 
 - **FSMC 8080 并口** — ILI9341 通过 FSMC 而非 SPI 连接，像素吞吐量远超 SPI（对全屏刷新至关重要）。
@@ -313,6 +330,7 @@ ai_tempconroler/
 - **BSP 自测** — `Tests/BSP/main_bsp_test.c` 和 `SOP_BSP_LCD_SELF_TEST.md` 提供了独立的 LCD/触摸冒烟测试，可在烧录完整应用前验证硬件。
 - **双构建系统** — 同时提供 `CMakeLists.txt`（GCC + CMake）和 Keil `.uvprojx` 工程，用任一工具链编译都无需改动。
 
+
 ---
 
 ## UI 设计
@@ -320,6 +338,7 @@ ai_tempconroler/
 ### 交互原型
 
 👉 https://miqm4hlcmthn4.ok.kimi.link/?sharetype=link
+
 
 ### 屏幕布局（240 × 320 竖屏）
 
@@ -347,6 +366,7 @@ ai_tempconroler/
 +----------------------------+
 ```
 
+
 ### 核心 UI 功能
 
 | 功能 | 描述 |
@@ -356,6 +376,7 @@ ai_tempconroler/
 | **修仙境界** | 温度范围映射到 炼气 → 筑基 → 金丹 → 元婴 → 化神…… |
 | **节气状态栏** | 显示当前二十四节气、日期和实时温度 |
 | **AI 语音核心** | 点击灵珠激活；结果通过 `tianji_ui_voice_result()` 更新旋钮和境界标签 |
+
 
 ---
 
@@ -370,6 +391,7 @@ ai_tempconroler/
 
 > 如果你用的是其他开发板，请阅读 [UI/README.md](UI/README.md) 中的移植指南。
 
+
 ### 第 1 步：克隆仓库
 
 ```bash
@@ -380,6 +402,7 @@ cd temperature-controller-ai-voice-muggle-fairy
 git submodule update --init --recursive
 ```
 
+
 ### 第 2 步：安装软件
 
 | 步骤 | 操作 |
@@ -388,11 +411,13 @@ git submodule update --init --recursive
 | 2 | 打开 Keil，点击 Pack Installer，安装 **Keil.STM32F4xx_DFP.2.17.1**（或更高版本） |
 | 3 | 确认 ARMCLANG V6.24 编译器已安装（在 Keil 安装目录下） |
 
+
 ### 第 3 步：打开工程并编译
 
 1. 双击 `MDK-ARM/ai_tempconroler.uvprojx` 打开工程
 2. 在 Keil 顶部选择 `Project → Build Target`（或按 F7）
 3. 等待编译完成，应看到 `0 Error(s), 0 Warning(s)`
+
 
 ### 第 4 步：烧录并验证
 
@@ -407,11 +432,13 @@ git submodule update --init --recursive
 
 > 如果屏幕没有显示，请检查：LCD 排线是否插紧？背光跳线是否接好？
 
+
 ### 第 5 步：连接串口查看日志（可选）
 
 1. 用 USB 转串口模块连接开发板的 UART1（PA9/PA10 经过 MAX232）
 2. 串口参数：**115200 波特率、8 数据位、1 停止位、无校验**
 3. 复位开发板，应看到启动日志输出
+
 
 ---
 
@@ -420,50 +447,63 @@ git submodule update --init --recursive
 <details>
 <summary><b>Q: 编译时报 "cannot open source file lvgl.h"？</b></summary>
 
+
 A: 你没有拉取 LVGL 子模块。请在仓库根目录执行：
 ```bash
 git submodule update --init --recursive
 ```
+
 </details>
 
 <details>
 <summary><b>Q: 编译时报 Pack 相关错误？</b></summary>
 
+
 A: 你可能没安装 STM32F4xx_DFP 器件包。打开 Keil → Pack Installer → 搜索 STM32F4 → 安装最新版。
+
 </details>
 
 <details>
 <summary><b>Q: 编译时报编译器版本错误？</b></summary>
 
+
 A: 工程默认使用 ARMCLANG V6.24（AC6）。如果你的 Keil 只有 AC5，需要：
 1. 安装 ARMCLANG V6（从 Keil 官网下载）
 2. 或在工程选项中切换到 AC5 并修复兼容性问题
+
 </details>
 
 <details>
 <summary><b>Q: 烧录后屏幕白屏/花屏？</b></summary>
 
+
 A: 可能原因：FSMC 配置与你的 LCD 不匹配。
 1. 首先运行 `Tests/BSP/main_bsp_test.c` 测试——这是独立的 LCD 冒烟测试
 2. 检查 LCD 排线方向是否正确
 3. 确认 LCD 控制器型号（ILI9341 vs ST7789，读丝印）
+
 </details>
 
 <details>
 <summary><b>Q: 我没有这块开发板，能用吗？</b></summary>
+
 
 A: 能！本项目 BSP 层通过 `bsp_stubs.c` 抽象。你只需要：
 1. 替换 `bsp_stubs.c` 中的 LCD 和触摸驱动函数
 2. 修改 `lv_conf.h` 中的分辨率配置
 3. 调整 FSMC/SPI 管脚配置
 详见 [UI/README.md](UI/README.md) 移植指南。
+
 </details>
 
 <details>
 <summary><b>Q: 如何运行 BSP 自测？</b></summary>
 
+
 A: `Tests/BSP/` 目录下有独立的 LCD/触摸冒烟测试代码。在 Keil 中将 `main_bsp_test.c` 替换 `main.c` 编译烧录即可。串口输出 "PASS" 表示 BSP 驱动正常。
+
 </details>
+
 
 ---
 
@@ -476,6 +516,7 @@ A: `Tests/BSP/` 目录下有独立的 LCD/触摸冒烟测试代码。在 Keil �
 3. 烧录地址：`0x08000000`
 
 > 预编译固件会随 Release 版本发布，请关注 [Releases](https://github.com/arniexu/temperature-controller-ai-voice-muggle-fairy/releases) 页面。
+
 
 ---
 
@@ -521,6 +562,7 @@ A: `Tests/BSP/` 目录下有独立的 LCD/触摸冒烟测试代码。在 Keil �
 
 > 之后每次发布新版本，只需重复以上步骤并递增 tag 版本号即可。
 
+
 ---
 
 ## 开发工具配置
@@ -535,6 +577,7 @@ A: `Tests/BSP/` 目录下有独立的 LCD/触摸冒烟测试代码。在 Keil �
 
 > ⚠️ **使用前必须修改一行：** `compilerPath` 当前指向 `C:/Users/xuqianjx/...`，请改为你本机 Keil ARMCLANG 的实际路径（搜索 `armclang.exe` 即可找到）。
 
+
 ### 推荐的 VS Code 插件
 
 | 插件 | 用途 |
@@ -544,9 +587,11 @@ A: `Tests/BSP/` 目录下有独立的 LCD/触摸冒烟测试代码。在 Keil �
 | **LinkerScript** | `.ld` / `.sct` 链接脚本语法高亮 |
 | **Keil Assistant** | 在 VS Code 中调用 Keil 编译（可选） |
 
+
 ### AI 辅助开发
 
 本项目约 40% 的代码由 AI 辅助生成。如果你对"如何用 AI 工具开发嵌入式项目"感兴趣，请阅读 **[AI_WORKFLOW.md](AI_WORKFLOW.md)** —— 里面详细记录了工具链选型、四层 AI 架构、典型工作流和经验教训。
+
 
 ---
 
@@ -556,6 +601,7 @@ A: `Tests/BSP/` 目录下有独立的 LCD/触摸冒烟测试代码。在 Keil �
 |------|------|
 | **[UI/README.md](UI/README.md)** | UI 层完整指南：文件结构、BSP 驱动集成、构建说明、性能优化、内存估算 |
 | [pin mapping.md](pin mapping.md) | 启明欣欣 STM32F407 开发板完整管脚映射表 |
+
 
 ---
 
@@ -569,6 +615,7 @@ A: `Tests/BSP/` 目录下有独立的 LCD/触摸冒烟测试代码。在 Keil �
 
 **当前状态：筹备中，预计 2026 Q3-Q4 上线。** 届时 README 会更新具体购买渠道。
 
+
 ### 配套视频课程
 
 计划在 B 站发布免费课程系列，从 CubeMX 配置到 LVGL 集成到移植实战，覆盖本项目全部技术点。
@@ -576,6 +623,7 @@ A: `Tests/BSP/` 目录下有独立的 LCD/触摸冒烟测试代码。在 Keil �
 **当前状态：筹备中，预计随成品板同步上线。** Star 本仓库可第一时间收到通知。
 
 > 以上所有内容将以与代码相同的方式开源 —— **不设付费墙**。课程免费看，板子只收硬件成本。
+
 
 ---
 
@@ -589,11 +637,13 @@ A: `Tests/BSP/` 目录下有独立的 LCD/触摸冒烟测试代码。在 Keil �
 
 > 有问题欢迎在知乎私信或 GitHub Issues 交流。抖音上可以看到这个项目的实际运行效果。
 
+
 ---
 
 ## 许可证
 
 MIT License，与 LVGL 保持一致。
+
 
 ---
 
