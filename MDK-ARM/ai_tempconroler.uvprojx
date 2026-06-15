@@ -339,7 +339,7 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>USE_HAL_DRIVER,STM32F407xx,CMSIS_RTOS_V2,ILI9341_SELF_TEST,LVGL_MINI_TEST</Define>
+              <Define>USE_HAL_DRIVER,STM32F407xx,CMSIS_RTOS_V2</Define>
               <Undefine></Undefine>
               <IncludePath>../Core/Inc;../FATFS/Target;../FATFS/App;../LIBJPEG/App;../LIBJPEG/Target;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/BSP/Components/ili9341;../Drivers/BSP/Components/xpt2046;../Drivers/BSP/Components/Common;../UI/Core/Inc;../UI/LVGL;../Utilities/Fonts;../Utilities/Log;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Middlewares/Third_Party/FatFs/src;../Middlewares/Third_Party/LibJPEG/include;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../Middlewares/Third_Party/lvgl/src;../Middlewares/Third_Party/lvgl</IncludePath>
             </VariousControls>
@@ -411,6 +411,11 @@
               <FilePath>../Core/Src/freertos.c</FilePath>
             </File>
             <File>
+              <FileName>hil_telemetry.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Core/Src/hil_telemetry.c</FilePath>
+            </File>
+            <File>
               <FileName>fsmc.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/fsmc.c</FilePath>
@@ -429,6 +434,11 @@
               <FileName>stm32f4xx_hal_timebase_tim.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/stm32f4xx_hal_timebase_tim.c</FilePath>
+            </File>
+            <File>
+              <FileName>usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Core/Src/usart.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -529,6 +539,11 @@
               <FileName>stm32f4xx_hal_dma.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f4xx_hal_uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_hal_pwr.c</FileName>

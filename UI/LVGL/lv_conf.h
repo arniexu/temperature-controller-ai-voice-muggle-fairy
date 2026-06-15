@@ -20,8 +20,11 @@
 /*====================
  * MEMORY SETTINGS
  *====================*/
-#define LV_MEM_CUSTOM           0
-#define LV_MEM_SIZE             (48U * 1024U)   /* 48KB for LVGL heap (reduced from 80KB to fit STM32F407 128KB SRAM) */
+#define LV_MEM_CUSTOM           1
+#define LV_MEM_CUSTOM_INCLUDE   "lvgl_freertos_mem.h"
+#define LV_MEM_CUSTOM_ALLOC     lvgl_freertos_malloc
+#define LV_MEM_CUSTOM_FREE      lvgl_freertos_free
+#define LV_MEM_CUSTOM_REALLOC   lvgl_freertos_realloc
 
 /*====================
  * HAL SETTINGS
@@ -37,7 +40,7 @@
 #define LV_USE_MEM_MONITOR      0
 #define LV_USE_LOG              1
 #define LV_LOG_LEVEL            LV_LOG_LEVEL_WARN
-#define LV_LOG_PRINTF           1
+#define LV_LOG_PRINTF           0
 
 /*===================
  * DRAW SETTINGS

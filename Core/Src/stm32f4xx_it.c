@@ -46,6 +46,7 @@ volatile uint32_t g_fault_hfsr;
 volatile uint32_t g_fault_bfar;
 volatile uint32_t g_fault_mmar;
 volatile uint32_t g_fault_shcsr;
+volatile uint32_t g_diag_tim1_irq_count;
 
 /* USER CODE END PV */
 
@@ -64,14 +65,13 @@ static void Fault_Probe(void)
   g_fault_bfar = SCB->BFAR;
   g_fault_mmar = SCB->MMFAR;
   g_fault_shcsr = SCB->SHCSR;
-
-  __BKPT(0);
 }
 
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
 extern TIM_HandleTypeDef htim1;
+extern volatile uint32_t g_boot_stage;
 
 /* USER CODE BEGIN EV */
 
@@ -185,6 +185,7 @@ void DebugMon_Handler(void)
 void TIM1_UP_TIM10_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM1_UP_TIM10_IRQn 0 */
+  g_diag_tim1_irq_count++;
 
   /* USER CODE END TIM1_UP_TIM10_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);

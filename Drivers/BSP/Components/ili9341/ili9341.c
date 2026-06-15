@@ -285,7 +285,7 @@ void ili9341_DisplayOff(void) {
  * @param  LCD_Reg: address of the selected register.
  * @retval None
  */
-void ili9341_WriteReg(uint8_t LCD_Reg) { LCD_IO_WriteReg(LCD_Reg); }
+void ili9341_WriteReg(uint16_t LCD_Reg) { LCD_IO_WriteReg(LCD_Reg); }
 
 /**
  * @brief  Writes data to the selected LCD register.

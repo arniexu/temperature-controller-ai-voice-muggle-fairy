@@ -210,6 +210,7 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
+  g_boot_stage = 0xE0U;
   __disable_irq();
   while (1)
   {

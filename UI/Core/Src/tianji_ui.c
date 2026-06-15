@@ -18,11 +18,6 @@
 #include <stdio.h>
 #include <string.h>
 
-#define UI_DEBUG_DISABLE_PARTICLES 1
-#define UI_DEBUG_MINIMAL_UI 0
-
-extern volatile uint32_t g_boot_stage;
-
 /*=================================================================*/
 /* Status Bar                                                       */
 /*=================================================================*/
@@ -30,9 +25,6 @@ extern volatile uint32_t g_boot_stage;
 static void create_status_bar(tianji_ui_t *ui)
 {
     ui->status_bar = lv_obj_create(lv_scr_act());
-    if (ui->status_bar == NULL) {
-        return;
-    }
     lv_obj_set_size(ui->status_bar, TIANJI_SCREEN_W, TIANJI_STATUS_H);
     lv_obj_set_pos(ui->status_bar, 0, 0);
     lv_obj_set_style_bg_color(ui->status_bar, lv_color_hex(TIANJI_COLOR_BG), 0);
@@ -43,11 +35,8 @@ static void create_status_bar(tianji_ui_t *ui)
 
     /* Solar term label */
     ui->term_label = lv_label_create(ui->status_bar);
-    if (!ui->term_label) {
-        return;
-    }
     const tianji_solar_term_t *term = tianji_get_current_term();
-    char buf[32] = {0};
+    char buf[32];
     snprintf(buf, sizeof(buf), "%s \xC2\xB7 %s", term->name, term->sub);
     lv_label_set_text(ui->term_label, buf);
     lv_obj_set_style_text_font(ui->term_label, &lv_font_montserrat_10, 0);
@@ -56,9 +45,6 @@ static void create_status_bar(tianji_ui_t *ui)
 
     /* Lunar date */
     ui->lunar_label = lv_label_create(ui->status_bar);
-    if (!ui->lunar_label) {
-        return;
-    }
     char lunar_buf[32];
     tianji_get_lunar_date(lunar_buf);
     lv_label_set_text(ui->lunar_label, lunar_buf);
@@ -68,9 +54,6 @@ static void create_status_bar(tianji_ui_t *ui)
 
     /* Outdoor temp */
     ui->outdoor_label = lv_label_create(ui->status_bar);
-    if (!ui->outdoor_label) {
-        return;
-    }
     lv_label_set_text(ui->outdoor_label, "\xE5\xA4\x96 28\xC2\xB0" "C \xC2\xB7 52%");
     lv_obj_set_style_text_font(ui->outdoor_label, &lv_font_montserrat_8, 0);
     lv_obj_set_style_text_color(ui->outdoor_label, lv_color_hex(TIANJI_COLOR_ICE_BLUE), 0);
@@ -78,9 +61,6 @@ static void create_status_bar(tianji_ui_t *ui)
 
     /* AQI badge */
     ui->aqi_badge = lv_obj_create(ui->status_bar);
-    if (!ui->aqi_badge) {
-        return;
-    }
     lv_obj_set_size(ui->aqi_badge, 28, 16);
     lv_obj_align(ui->aqi_badge, LV_ALIGN_TOP_RIGHT, -2, 4);
     lv_obj_set_style_radius(ui->aqi_badge, 8, 0);
@@ -143,12 +123,13 @@ static void create_realm_bar(tianji_ui_t *ui, lv_obj_t *parent, lv_coord_t y)
 static void update_realm_bar(tianji_ui_t *ui)
 {
     const tianji_cultivation_t *cult = tianji_get_cultivation(ui->current_temp);
+    const uint16_t inactive_color = 0x2A2A;
     for (int i = 0; i < 7; i++) {
-        uint32_t color = (ui->current_temp >= tianji_cultivation_levels[i].minTemp &&
+        uint16_t color = (ui->current_temp >= tianji_cultivation_levels[i].minTemp &&
                          ui->current_temp < tianji_cultivation_levels[i].maxTemp)
-                         ? cult->color : 0x2A2A4A;
+                         ? cult->color : inactive_color;
         lv_obj_set_style_bg_color(realm_dots[i], lv_color_hex(color), 0);
-        if (color != 0x2A2A4A) {
+        if (color != inactive_color) {
             lv_obj_set_style_shadow_color(realm_dots[i], lv_color_hex(color), 0);
             lv_obj_set_style_shadow_width(realm_dots[i], 4, 0);
             lv_obj_set_style_shadow_opa(realm_dots[i], LV_OPA_60, 0);
@@ -205,9 +186,6 @@ static lv_obj_t* create_neon_btn(lv_obj_t *parent, lv_coord_t x, lv_coord_t y,
                                   lv_event_cb_t cb, void *user)
 {
     lv_obj_t *btn = lv_btn_create(parent);
-    if (btn == NULL) {
-        return NULL;
-    }
     lv_obj_set_size(btn, 68, 34);
     lv_obj_set_pos(btn, x, y);
     lv_obj_set_style_radius(btn, 10, 0);
@@ -272,10 +250,6 @@ static void marquee_timer_cb(lv_timer_t *timer)
 static void create_marquee(tianji_ui_t *ui)
 {
     ui->marquee_label = lv_label_create(lv_scr_act());
-    if (ui->marquee_label == NULL) {
-        ui->marquee_timer = NULL;
-        return;
-    }
     lv_label_set_text(ui->marquee_label, marquee_text);
     lv_obj_set_style_text_font(ui->marquee_label, &lv_font_montserrat_8, 0);
     lv_obj_set_style_text_color(ui->marquee_label, lv_color_hex(0x1A1A3E), 0);
@@ -309,11 +283,9 @@ static void voice_activated(void *user_data)
 
 tianji_ui_t* tianji_ui_init(void)
 {
-    g_boot_stage = 0x230U;
     tianji_ui_t *ui = lv_mem_alloc(sizeof(tianji_ui_t));
     if (!ui) return NULL;
     memset(ui, 0, sizeof(tianji_ui_t));
-    g_boot_stage = 0x231U;
 
     ui->current_temp = TIANJI_TEMP_DEFAULT;
     ui->mode_idx = 0;
@@ -322,26 +294,12 @@ tianji_ui_t* tianji_ui_init(void)
 
     /* Set screen background */
     lv_obj_set_style_bg_color(lv_scr_act(), lv_color_hex(TIANJI_COLOR_BG), 0);
-    lv_obj_set_style_bg_opa(lv_scr_act(), LV_OPA_COVER, 0);
-    lv_obj_clear_flag(lv_scr_act(), LV_OBJ_FLAG_SCROLLABLE);
 
     /* Create status bar */
-    g_boot_stage = 0x232U;
     create_status_bar(ui);
-    if (ui->status_bar == NULL) {
-        tianji_ui_deinit(ui);
-        return NULL;
-    }
-    g_boot_stage = 0x233U;
-
-    #if UI_DEBUG_MINIMAL_UI
-    g_boot_stage = 0x23EU;
-    return ui;
-    #endif
 
     /* Create particle helix behind dial */
     /* Place particles in the dial area */
-    #if !UI_DEBUG_DISABLE_PARTICLES
     ui->particles = tj_particles_create(
         lv_scr_act(),
         35, TIANJI_DIAL_Y + 10,
@@ -349,53 +307,28 @@ tianji_ui_t* tianji_ui_init(void)
         TIANJI_COLOR_NEON_GREEN,
         TIANJI_COLOR_ICE_BLUE
     );
-    if (ui->particles == NULL) {
-        tianji_ui_deinit(ui);
-        return NULL;
+    if (ui->particles) {
+        tj_particles_set_speed(ui->particles, 4);
+        tj_particles_start(ui->particles);
     }
-    tj_particles_set_speed(ui->particles, 4);
-    tj_particles_start(ui->particles);
-    #endif
 
     /* Create dial (on top of particles) */
-    g_boot_stage = 0x234U;
     ui->dial = tj_dial_create(lv_scr_act(), 30, TIANJI_DIAL_Y + 5);
-    if (ui->dial == NULL) {
-        tianji_ui_deinit(ui);
-        return NULL;
-    }
     tj_dial_set_temp(ui->dial, ui->current_temp);
-    g_boot_stage = 0x235U;
 
     /* Create cultivation realm bar */
-    g_boot_stage = 0x236U;
     create_realm_bar(ui, lv_scr_act(), TIANJI_REALM_Y);
     update_realm_bar(ui);
-    g_boot_stage = 0x237U;
 
     /* Create voice core */
-    g_boot_stage = 0x238U;
     ui->voice = tj_voice_create(lv_scr_act(), 70, TIANJI_VOICE_Y);
-    if (ui->voice == NULL) {
-        tianji_ui_deinit(ui);
-        return NULL;
-    }
     tj_voice_set_callback(ui->voice, voice_activated, ui);
-    g_boot_stage = 0x239U;
 
     /* Create bottom controls */
-    g_boot_stage = 0x23AU;
     create_bottom_controls(ui);
-    g_boot_stage = 0x23BU;
 
     /* Create marquee */
-    g_boot_stage = 0x23CU;
     create_marquee(ui);
-    if ((ui->marquee_label == NULL) || (ui->marquee_timer == NULL)) {
-        tianji_ui_deinit(ui);
-        return NULL;
-    }
-    g_boot_stage = 0x23DU;
 
     return ui;
 }

@@ -9,29 +9,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT(c) 2014 STMicroelectronics</center></h2>
+  * Copyright (c) 2014 STMicroelectronics.
+  * All rights reserved.
   *
-  * Redistribution and use in source and binary forms, with or without modification,
-  * are permitted provided that the following conditions are met:
-  *   1. Redistributions of source code must retain the above copyright notice,
-  *      this list of conditions and the following disclaimer.
-  *   2. Redistributions in binary form must reproduce the above copyright notice,
-  *      this list of conditions and the following disclaimer in the documentation
-  *      and/or other materials provided with the distribution.
-  *   3. Neither the name of STMicroelectronics nor the names of its contributors
-  *      may be used to endorse or promote products derived from this software
-  *      without specific prior written permission.
-  *
-  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-  * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-  * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-  * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */ 
@@ -40,6 +23,7 @@
 #ifndef __ILI9341_H
 #define __ILI9341_H
 
+#include <stdint.h>
 #ifdef __cplusplus
  extern "C" {
 #endif 
@@ -157,7 +141,7 @@
 
 /* Level 2 Commands */
 #define LCD_RGB_INTERFACE       0xB0   /* RGB Interface Signal Control */
-#define LCD_FRMCTR1             0xB1   /* Frame Rate DOControl (In Normal Mode) */
+#define LCD_FRMCTR1             0xB1   /* Frame Rate Control (In Normal Mode) */
 #define LCD_FRMCTR2             0xB2   /* Frame Rate Control (In Idle Mode) */
 #define LCD_FRMCTR3             0xB3   /* Frame Rate Control (In Partial Mode) */
 #define LCD_INVTR               0xB4   /* Display Inversion Control */
@@ -195,7 +179,12 @@
 #define LCD_PRC                  0xF7   /* Pump ratio control register */
 
 /* Size of read registers */
-#define LCD_READ_ID4_SIZE        4      /* Size of Read ID4 */
+#define LCD_READ_ID4_SIZE        3      /* Size of Read ID4 */
+#define  CMD_BASE     ((u32)(0x6C000000 | 0x00001FFE))
+#define  DATA_BASE    ((u32)(0x6C000000 | 0x00002000))
+
+#define LCD_CMD       ( * (u16 *) CMD_BASE )
+#define LCD_DATA      ( * (u16 *) DATA_BASE)
 
 /**
   * @}
@@ -206,26 +195,22 @@
   */ 
 void     ili9341_Init(void);
 uint16_t ili9341_ReadID(void);
-void     ili9341_WriteReg(uint8_t LCD_Reg);
+void     ili9341_WriteReg(uint16_t LCD_Reg);
+void     ili9341_WriteRegData(uint16_t LCD_Reg, uint16_t RegValue);
 void     ili9341_WriteData(uint16_t RegValue);
-uint32_t ili9341_ReadData(uint16_t RegValue, uint8_t ReadSize);
 void     ili9341_DisplayOn(void);
 void     ili9341_DisplayOff(void);
 uint16_t ili9341_GetLcdPixelWidth(void);
 uint16_t ili9341_GetLcdPixelHeight(void);
-void illi9341_Open_Window(uint16_t X0,uint16_t Y0,uint16_t width,uint16_t height);
-void illi9341_Scan_Direction(uint8_t direction);
-void illi9341_Display_Mode(uint8_t mode);
-void illi9341_SetCursor(uint16_t Xaddr, uint16_t Yaddr);
-uint16_t illi9341_GetPoint(uint16_t x,uint16_t y);
-void illi9341_DrawPoint(uint16_t x,uint16_t y, uint16_t color);
-void illi9341_Set_BackLight(uint8_t BL_value);
-void illi9341_Clear(uint16_t color);
+
+/* Extended drawing functions (non-standard BSP extension) */
+void     illi9341_Open_Window(uint16_t X0, uint16_t Y0, uint16_t width, uint16_t height);
+void     illi9341_DrawPoint(uint16_t x, uint16_t y, uint16_t color);
+uint16_t illi9341_GetPoint(uint16_t x, uint16_t y);
+void     illi9341_Clear(uint16_t color);
 
 /* LCD driver structure */
 extern LCD_DrvTypeDef   ili9341_drv;
-
-#include "fsmc_8080.h"
       
 #ifdef __cplusplus
 }
@@ -248,5 +233,3 @@ extern LCD_DrvTypeDef   ili9341_drv;
 /**
   * @}
   */
-  
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

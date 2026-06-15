@@ -153,7 +153,7 @@ void tianji_get_lunar_date(char *buf)
 {
     /* TODO: Read RTC and convert to lunar/干支 */
     /* Using a static example for now */
-    sprintf(buf, "\xE5\xB7\xB1\xE5\xB7\xB3\xE5\xB9\xB4 \xC2\xB7 5\xE6\x9C\x88" "24" "\xE6\x97\xA5");
+    sprintf(buf, "\xE5\xB7\xB1\xE5\xB7\xB3\xE5\xB9\xB4 \xC2\xB7 5\xE6\x9C\x88" "24\xE6\x97\xA5");
 }
 
 uint16_t tianji_temp_gradient(float percent)

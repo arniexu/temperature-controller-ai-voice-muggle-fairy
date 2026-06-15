@@ -30,6 +30,7 @@
 #include "display_drv.h"
 #include "touch_drv.h"
 #include "lvgl.h"
+#include "hil_telemetry.h"
 
 /* USER CODE END Includes */
 
@@ -52,9 +53,15 @@
 /* USER CODE BEGIN Variables */
 static tianji_ui_t *g_ui = NULL;
 volatile uint32_t g_boot_stage = 0U;
+volatile uint32_t g_diag_assert_count = 0U;
+volatile uint32_t g_diag_hal_tick_last = 0U;
+volatile uint32_t g_diag_rtos_tick_last = 0U;
+volatile uint32_t g_diag_primask_last = 0U;
+volatile uint32_t g_diag_basepri_last = 0U;
 
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
+osThreadId hilTelemetryTaskHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -62,6 +69,7 @@ osThreadId defaultTaskHandle;
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void const * argument);
+void StartHILTelemetryTask(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -114,7 +122,9 @@ void MX_FREERTOS_Init(void) {
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
-  /* add threads, ... */
+  /* HIL Telemetry task — sends JSON frames over UART1 at 100ms intervals */
+  osThreadDef(hilTelemetryTask, StartHILTelemetryTask, osPriorityLow, 0, 1024);
+  hilTelemetryTaskHandle = osThreadCreate(osThread(hilTelemetryTask), NULL);
   /* USER CODE END RTOS_THREADS */
 
 }
@@ -136,12 +146,14 @@ void StartDefaultTask(void const * argument)
 
   g_boot_stage = 0x20U;
 
+#ifndef LVGL_MINI_TEST
   lv_init();
   g_boot_stage = 0x21U;
 
   if (display_drv_init() != 0) {
     Error_Handler();
   }
+#endif
   g_boot_stage = 0x22U;
 
   if (touch_drv_init() != 0) {
@@ -158,18 +170,37 @@ void StartDefaultTask(void const * argument)
   display_drv_set_backlight(85);
   g_boot_stage = 0x25U;
 
+  /* Initialize HIL telemetry */
+  g_boot_stage = 0x260U;
+  HIL_Telemetry_Init();
+  g_boot_stage = 0x261U;
+  HIL_Telemetry_SetChannel(HIL_CH_BOOT_STAGE, 0x25);
+  g_boot_stage = 0x262U;
+
+  g_boot_stage = 0x26U;
+
   /* Infinite loop */
   for(;;)
   {
+    g_boot_stage = 0x263U;
     uint32_t now = HAL_GetTick();
 
+    g_diag_hal_tick_last = now;
+    g_diag_rtos_tick_last = xTaskGetTickCount();
+    g_diag_primask_last = __get_PRIMASK();
+    g_diag_basepri_last = __get_BASEPRI();
+    g_boot_stage = 0x264U;
+
     if ((now - last_lvgl_tick) >= 5U) {
+      g_boot_stage = 0x265U;
       last_lvgl_tick = now;
       lv_timer_handler();
+      g_boot_stage = 0x266U;
     }
 
     if ((g_ui != NULL) && ((now - last_status_tick) >= 200U)) {
       int16_t dial_temp;
+      g_boot_stage = 0x267U;
       last_status_tick = now;
 
       dial_temp = tianji_ui_get_temp(g_ui);
@@ -177,16 +208,42 @@ void StartDefaultTask(void const * argument)
         g_ui->current_temp = dial_temp;
         tianji_ui_update_status(g_ui);
       }
+      /* Update HIL telemetry channels */
+      HIL_Telemetry_SetChannel(HIL_CH_TARGET_TEMP, (int32_t)dial_temp * 10);
+      HIL_Telemetry_SetChannel(HIL_CH_CURRENT_TEMP, (int32_t)g_ui->current_temp * 10);
+      HIL_Telemetry_SetChannel(HIL_CH_HEAP_FREE, (int32_t)xPortGetFreeHeapSize());
+      g_boot_stage = 0x268U;
     }
 
-    g_boot_stage = 0x26U;
+    g_boot_stage = 0x27U;
 
+    g_boot_stage = 0x271U;
     osDelay(1);
+    g_boot_stage = 0x272U;
   }
   /* USER CODE END StartDefaultTask */
 }
 
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
+
+/**
+  * @brief  HIL Telemetry task — sends JSON frames at 100ms intervals
+  * @param  argument: Not used
+  */
+void StartHILTelemetryTask(void const * argument)
+{
+  (void)argument;
+  TickType_t xLastWakeTime = xTaskGetTickCount();
+  const TickType_t xPeriod = pdMS_TO_TICKS(100);
+
+  for (;;)
+  {
+    g_boot_stage = 0x280U;
+    HIL_Telemetry_SendFrame();
+    g_boot_stage = 0x281U;
+    vTaskDelayUntil(&xLastWakeTime, xPeriod);
+  }
+}
 
 /* USER CODE END Application */
